@@ -31,4 +31,7 @@ resources :companies
 
 patch "deals/:id/spin" => "deals#spin", as: "spin"
 
+get "companies/:id/profile" => "companies#public", as: "public"
+
+
 end
