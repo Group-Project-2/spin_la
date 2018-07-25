@@ -62,19 +62,19 @@
    box-shadow: 7px 6px 160px -5px rgba(0,0,0,0.39);
  }
 
- .sign-up, .sign-in {
+ .sign-up, .sign-in, .password-reset {
    max-width: 580px;
    margin-top: 50px;
    font-weight: bold;
  }
 
- .sign-up .title, .sign-in .title {
+ .sign-up .title, .sign-in .title, .password-reset .title {
    background-color: midnightblue;
    border-top-left-radius: 8px;
    border-top-right-radius: 8px;
  }
 
- .sign-up h2, .sign-in h2 {
+ .sign-up h2, .sign-in h2, .password-reset h2 {
    text-align: center;
    color: #fff;
    margin-bottom: 0;

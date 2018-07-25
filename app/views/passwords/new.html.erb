@@ -1,7 +1,7 @@
-<div id="clearance" class="password-reset">
-  <h2><%= t(".title") %></h2>
-
-  <p><%= t(".description") %></p>
+<div id="clearance" class="password-reset container">
+  <div class="title">
+    <h2><%= t(".title") %></h2>
+  </div>
 
   <%= form_for :password, url: passwords_path do |form| %>
     <div class="text-field">
@@ -10,7 +10,7 @@
     </div>
 
     <div class="submit-field">
-      <%= form.submit %>
+      <%= form.submit :role => "button", :class => "mt-2 btn btn-block btn-outline-dark"%>
     </div>
   <% end %>
 </div>
