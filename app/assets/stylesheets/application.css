@@ -1,4 +1,4 @@
-/*
+p/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -64,19 +64,23 @@
    box-shadow: 7px 6px 160px -5px rgba(0,0,0,0.39);
  }
 
- .sign-up, .sign-in, .password-reset {
+ .sign-up, .sign-in, .password-reset, .deals, .company {
    max-width: 580px;
    margin-top: 50px;
    font-weight: bold;
  }
 
- .sign-up .title, .sign-in .title, .password-reset .title {
+ .sign-up .title,
+ .sign-in .title,
+ .password-reset .title,
+ .company .title,
+ .deals .title {
    background-color: midnightblue;
    border-top-left-radius: 8px;
    border-top-right-radius: 8px;
  }
 
- .sign-up h2, .sign-in h2, .password-reset h2 {
+ .sign-up h2, .sign-in h2, .password-reset h2, .company h2, .deals h2 {
    text-align: center;
    color: #fff;
    margin-bottom: 0;
@@ -126,6 +130,18 @@ input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
   border-bottom: 2px solid #0f52ba; /* Colour -> Sapphire */
+}
+
+input[name="company[name]"],
+input[name="company[description]"],
+input[name="company[address]"],
+input[name="company[email]"],
+input[name="company[phone_number]"],
+input[name="deal[wins_remaining]"],
+input[name="deal[odds_numerator]"],
+input[name="deal[odds_denominator]"],
+input[name="deal[description]"] {
+  margin-top: -20px;
 }
 
 

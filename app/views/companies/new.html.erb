@@ -1,4 +1,8 @@
-<h1>Create a company:</h1>
+<div class="container company">
+
+  <div class="title">
+    <h2>Create a company:</h2>
+  </div>
 
 <%= form_for @company do |form| %>
   <p>
@@ -22,6 +26,8 @@
     <%= form.text_field :phone_number %>
   </p>
   <p>
-    <%= form.submit %>
+    <%= form.submit :class => "sign-up-submit btn btn-outline-dark btn-block" %>
   </p>
 <% end %>
+
+</div>
