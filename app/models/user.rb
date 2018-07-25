@@ -2,6 +2,11 @@ class User < ApplicationRecord
 	include Clearance::User
  	has_many :authentications, dependent: :destroy
 
+ 	validates :email,
+				 		presence: { message: "Email must not be blank."},
+	          format: { with: /\w+@\w+\.\w{2,}/, message: "Email must be in format abc@example.com"} 
+	validates :password,
+				 		length: { minimum: 8, message: "Password must be at least 8 characters." }
 
 	def self.create_with_auth_and_hash(authentication, auth_hash)
 		user = self.create!(
