@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+	before_action :find_company, only: [:show]
+
 	def new
 		@company = Company.new
 	end
@@ -8,13 +10,18 @@ class CompaniesController < ApplicationController
 		@company.user_id = current_user.id
 
 		if @company.save
-		
+
 			current_user.update(role: 1)
 			redirect_to company_path(@company)
 		else
 			redirect_back
 		end
 	end
+
+	def show
+
+	end
+
 
 	private
 	def find_company

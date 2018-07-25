@@ -39,7 +39,8 @@ ActiveRecord::Schema.define(version: 2018_07_25_041409) do
 
   create_table "deals", force: :cascade do |t|
     t.integer "wins_remaining"
-    t.decimal "winning_odds"
+    t.integer "odds_numerator"
+    t.integer "odds_denominator"
     t.string "description"
     t.bigint "company_id"
     t.datetime "created_at", null: false

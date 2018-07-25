@@ -1,1 +1,18 @@
-show show show show
+<%= @company.name %>
+<li>Decsription: <%= @company.description %></li>
+<li>Address: <%= @company.address %></li>
+<li>Email: <%= @company.email%></li>
+<li>Phone number: <%= @company.phone_number%></li>
+
+<% Deal.all.each do |deal| %>
+	<% if deal.company_id == @company.id%>
+		<strong><%= deal.description %></strong>
+		<li>Winning Odds: <%= (deal.odds_numerator)/(deal.odds_denominator).to_r %></li>
+		<li>Wins Remaining: <%= deal.wins_remaining %></li>
+		<br>
+	<% end %>
+<% end %>
+
+<%= link_to 'Create new deal', new_deal_path %>
+
+
