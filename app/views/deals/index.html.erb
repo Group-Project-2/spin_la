@@ -4,10 +4,12 @@
 <p>Spins available: <%= current_user.spins_remaining %></p>
 
 <% @deals.each do |deal| %>
-	<strong><%= deal.company.name %></strong></br>
-	<strong><%= deal.description %></strong>
-	<li>Winning Odds: <%= (deal.odds_numerator)/(deal.odds_denominator).to_r %></li>
-	<li>Wins Remaining: <%= deal.wins_remaining %></li>
-	<%= link_to 'Spin', deal_path(deal)%>
+	<% if deal.wins_remaining > 0 %>
+		<strong><%= deal.company.name %></strong></br>
+		<strong><%= deal.description %></strong>
+		<li>Winning Odds: <%= (deal.odds_numerator)/(deal.odds_denominator).to_r %></li>
+		<li>Wins Remaining: <%= deal.wins_remaining %></li>
+		<%= link_to 'Spin', deal_path(deal)%>
+	<% end %>
 	</br>
 <% end %>
