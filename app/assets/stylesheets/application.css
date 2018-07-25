@@ -84,11 +84,12 @@
  .btn-outline-dark {
    border-color: purple;
    color: midnightblue;
+
  }
 
- .btn-outline-dark:hover, .btn-outline-dark:target {
-  background-color: midnightblue;
-  color: #fff;
+ .btn-outline-dark:hover, .btn-outline-dark:active {
+  background-color: midnightblue !important;
+  color: #fff !important;
 }
 
 label {
