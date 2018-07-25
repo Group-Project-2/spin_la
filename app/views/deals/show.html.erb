@@ -1,0 +1,15 @@
+<p id="status-<%=current_user.id%>"> Spins available: <%= current_user.spins_remaining %></p>
+</br>
+
+<div id="no_spin" class="notice"></div>
+
+<strong><%= @deal.company.name %></strong></br>
+<li>Decsription: <%= @deal.company.description %></li>
+<li>Address: <%= @deal.company.address %></li>
+<li>Email: <%= @deal.company.email%></li>
+<li>Phone number: <%= @deal.company.phone_number%></li>
+
+<strong><%= @deal.description %></strong>
+<li>Winning Odds: <%= (@deal.odds_numerator)/(@deal.odds_denominator).to_r %></li>
+<li>Wins Remaining: <%= @deal.wins_remaining %></li>
+<%= button_to 'Spin', spin_path(@deal), method: :patch, remote: true %>

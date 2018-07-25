@@ -1,8 +1,13 @@
 <%= link_to 'Sign Up as a Business', new_company_path %>
+</br>
+<p>Welcome <%= current_user.last_name %></p>
+<p>Spins available: <%= current_user.spins_remaining %></p>
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<% @deals.each do |deal| %>
+		<strong><%= deal.company.name %></strong></br>
+		<strong><%= deal.description %></strong>
+		<li>Winning Odds: <%= (deal.odds_numerator)/(deal.odds_denominator).to_r %></li>
+		<li>Wins Remaining: <%= deal.wins_remaining %></li>
+		<%= link_to 'Spin', deal_path(deal)%>
+		</br>
+<% end %>
