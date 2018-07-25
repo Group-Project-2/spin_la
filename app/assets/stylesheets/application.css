@@ -22,6 +22,11 @@
    box-sizing: border-box;
  }
 
+ body {
+   /* background-color: #e5ffe5; */
+   background-color: #fff;
+ }
+ 
  /*******************************
               LAYOUT
  *******************************/
@@ -30,6 +35,93 @@
    margin-bottom: 10px;
  }
 
+ .nav-item:first-child {
+   padding-left: 0;
+ }
+
  .nav-item {
    padding: 0 5px;
  }
+
+  /*******************************
+              FORM
+ *******************************/
+
+ form {
+   display: block;
+   position: relative;
+   background-color: #fff;
+   color: #999;
+   padding: 15px;
+   -webkit-box-shadow: 7px 6px 160px -5px rgba(0,0,0,0.39);
+   -moz-box-shadow: 7px 6px 160px -5px rgba(0,0,0,0.39);
+   box-shadow: 7px 6px 160px -5px rgba(0,0,0,0.39);
+ }
+
+ .sign-up {
+   max-width: 580px;
+   margin-top: 50px;
+   font-weight: bold;
+ }
+
+ .sign-up .title {
+   background-color: midnightblue;
+   border-top-left-radius: 8px;
+   border-top-right-radius: 8px;
+ }
+
+ .sign-up h2 {
+   text-align: center;
+   color: #fff;
+   margin-bottom: 0;
+   padding: 10px;
+ }
+
+ .btn-outline-dark {
+   border-color: purple;
+   color: midnightblue;
+ }
+
+ .btn-outline-dark:hover, .btn-outline-dark:active {
+  background-color: midnightblue;
+  color: #fff;
+}
+
+label {
+  display: block;
+  position: relative;
+  top: 1px;
+  left: 0px;
+  margin: 0;
+  z-index: 1;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+  display: block;
+  position: relative;
+  border: none;
+  background: none;
+  border-bottom: 2px solid purple;
+  outline: none;
+  width: 100%;
+  font-weight: bold;
+  z-index: 2;
+  transition: all .3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:valid,
+input[type="email"]:valid,
+input[type="password"]:valid {
+  border-bottom: 2px solid red;
+}
+
+.text-field {
+  margin: 13px 0;
+}
+
+.submit-field {
+  margin-top: 30px;
+}
