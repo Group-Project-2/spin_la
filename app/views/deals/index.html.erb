@@ -1,5 +1,13 @@
-<%= link_to 'Sign Up as a Business', new_company_path %>
+<!-- Condition so only consumer can sign up for business -->
+<% if current_user.role == "consumer" %>
+	<%= link_to 'Sign Up as a Business', new_company_path %>
+<% end %>
 </br>
+
+<% @user = User.find(current_user.id) %>
+<%= link_to 'My Profile Page', user_path(@user) %>
+
+
 <p>Welcome <%= current_user.last_name %></p>
 <p>Spins available: <%= current_user.spins_remaining %></p>
 

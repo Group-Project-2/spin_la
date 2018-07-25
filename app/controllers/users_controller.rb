@@ -12,6 +12,10 @@ class UsersController < Clearance::UsersController
 			user.last_name = last_name
 			user.first_name = first_name
 		end
+
+		def show
+			@user = User.find(current_user.id)
+		end
 		
 	end
 end
