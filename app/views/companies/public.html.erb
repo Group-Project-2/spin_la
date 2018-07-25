@@ -3,6 +3,10 @@
 <li>Address: <%= @company.address %></li>
 <li>Email: <%= @company.email%></li>
 <li>Phone number: <%= @company.phone_number%></li>
+</br>
+
+<p>See all reviews here:</p>
+<%= link_to 'See all reviews', company_reviews_path(@company)%>
 
 
 <% Deal.all.each do |deal| %>
@@ -16,3 +20,5 @@
 	<% end %>
 	</br>
 <% end %>
+
+<%= button_to 'Review company now!', new_company_review_path(@company) %>

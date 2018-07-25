@@ -27,9 +27,13 @@ resources :deals
 
 resources :welcome, only: [:index]
 
-resources :companies
+resources :companies do
+  resources :reviews
+end
 
 resources :admins, only: [:index, :destroy]
+
+
 
 patch "deals/:id/spin" => "deals#spin", as: "spin"
 
