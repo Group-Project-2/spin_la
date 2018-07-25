@@ -26,4 +26,5 @@ resources :deals
 
 resources :welcome, only: [:index]
 
+resources :companies
 end
