@@ -8,20 +8,48 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <div id="header">
-    <% if signed_in? -%>
-      <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
-    <% else -%>
-      <%= link_to t(".sign_in"), sign_in_path %>
-      <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
-    <% end -%>
-  </div>
+  
+  <!-- Start of Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/">Spin La</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <!-- Add something if needed -->
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if signed_in? -%>
+          <li class="nav-item">
+            <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
+          </li>
+          <% else -%>
+          <li class="nav-item">
+            <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t(".sign_up"), sign_up_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t(".sign_in"), sign_in_path %>
+          </li>
+          <% end -%>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End of Navbar -->
 
-  <div id="flash">
+  <!-- Start of Flash Message -->
+  <div id="flash" class="container text-center">
     <% flash.each do |key, value| -%>
       <div id="flash_<%= key %>"><%=h value %></div>
     <% end %>
   </div>
+  <!-- End of Flash Message -->
 
   <%= yield %>
   <!-- Bootstrap -->
