@@ -10,7 +10,6 @@ class CompaniesController < ApplicationController
 		@company.user_id = current_user.id
 
 		if @company.save
-
 			current_user.update(role: 1)
 			redirect_to company_path(@company)
 		else

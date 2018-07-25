@@ -1,6 +1,10 @@
 class DealsController < ApplicationController
 
 	def index
+		if current_user.role == "business"
+			@company = Company.find_by(user_id: current_user.id)
+			redirect_to company_path(@company)
+		end
 	end
 
 	def new

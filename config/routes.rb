@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
   #Change path when needed
+
   constraints Clearance::Constraints::SignedIn.new do
     root to: 'deals#index', as: :signed_in_root
   end
