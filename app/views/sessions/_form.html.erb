@@ -1,7 +1,7 @@
 <%= form_for :session, url: session_path do |form| %>
   <div class="text-field">
     <%= form.label :email %>
-    <%= form.text_field :email, type: 'email' %>
+    <%= form.text_field :email, type: 'email', :autocomplete => "off" %>
   </div>
 
   <div class="password-field">
@@ -10,13 +10,10 @@
   </div>
 
   <div class="submit-field">
-    <%= form.submit %>
+    <%= form.submit :class => "btn btn-block btn-outline-dark" %>
   </div>
 
   <div class="other-links">
-    <% if Clearance.configuration.allow_sign_up? %>
-      <%= link_to t(".sign_up"), sign_up_path %>
-    <% end %>
-    <%= link_to t(".forgot_password"), new_password_path %>
+    <%= link_to t(".forgot_password"), new_password_path, :role => "button", :class => "mt-2 btn btn-block btn-outline-dark" %>
   </div>
 <% end %>
