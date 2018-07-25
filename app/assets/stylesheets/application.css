@@ -26,7 +26,7 @@
    /* background-color: #e5ffe5; */
    background-color: #fff;
  }
- 
+
  /*******************************
               LAYOUT
  *******************************/
@@ -41,6 +41,10 @@
 
  .nav-item {
    padding: 0 5px;
+ }
+
+ .other-links h2 {
+   font-size: 16px;
  }
 
   /*******************************
@@ -58,19 +62,19 @@
    box-shadow: 7px 6px 160px -5px rgba(0,0,0,0.39);
  }
 
- .sign-up {
+ .sign-up, .sign-in {
    max-width: 580px;
    margin-top: 50px;
    font-weight: bold;
  }
 
- .sign-up .title {
+ .sign-up .title, .sign-in .title {
    background-color: midnightblue;
    border-top-left-radius: 8px;
    border-top-right-radius: 8px;
  }
 
- .sign-up h2 {
+ .sign-up h2, .sign-in h2 {
    text-align: center;
    color: #fff;
    margin-bottom: 0;
