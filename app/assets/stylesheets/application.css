@@ -106,7 +106,7 @@ input[type="text"], input[type="email"], input[type="password"] {
   position: relative;
   border: none;
   background: none;
-  border-bottom: 2px solid purple;
+  border-bottom: 2px solid #eee;
   outline: none;
   width: 100%;
   font-weight: bold;
@@ -114,10 +114,16 @@ input[type="text"], input[type="email"], input[type="password"] {
   transition: all .3s ease;
 }
 
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover {
+  border-bottom: 2px solid purple;
+}
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-  border-bottom: 2px solid yellow;
+  border-bottom: 2px solid #0f52ba; /* Colour -> Sapphire */
 }
 
 
