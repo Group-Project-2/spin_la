@@ -86,7 +86,7 @@
    color: midnightblue;
  }
 
- .btn-outline-dark:hover, .btn-outline-dark:active {
+ .btn-outline-dark:hover, .btn-outline-dark:target {
   background-color: midnightblue;
   color: #fff;
 }
@@ -115,12 +115,10 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 input[type="text"]:focus,
 input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="text"]:valid,
-input[type="email"]:valid,
-input[type="password"]:valid {
-  border-bottom: 2px solid red;
+input[type="password"]:focus {
+  border-bottom: 2px solid yellow;
 }
+
 
 .text-field {
   margin: 13px 0;
