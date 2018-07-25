@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-	before_action :find_company, only: [:show, :public]
+	before_action :find_company, only: [:show, :public, :verify]
 
 	def new
 		@company = Company.new
@@ -23,6 +23,20 @@ class CompaniesController < ApplicationController
 
 	def public
 
+	end
+
+	def verify
+		if @company.verified == true
+			@company.update(verified: false)
+			respond_to do |format|
+					format.js
+				end
+		else
+			@company.update(verified: true)
+			respond_to do |format|
+					format.js
+				end
+		end
 	end
 
 

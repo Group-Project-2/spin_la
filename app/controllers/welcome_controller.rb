@@ -8,6 +8,8 @@ class WelcomeController < ApplicationController
 			elsif current_user.role == "business"
 				@company = Company.find_by(user_id: current_user.id)
 				redirect_to company_path(@company)
+			else
+				redirect_to admins_path
 			end
 		end
 	end

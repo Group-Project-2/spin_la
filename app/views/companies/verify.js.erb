@@ -1,0 +1,3 @@
+$('#verification_status').text("<%= @company.verified ? 'Approved' : 'Pending'%>")
+$('#verify_link').text("<%= !@company.verified ? 'Approve this company' : 'Disapprove this company'%>")
+

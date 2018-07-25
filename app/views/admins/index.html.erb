@@ -1,0 +1,20 @@
+<h2>Admin Panel:</h2>
+
+<% @companies.each do |company| %>
+	<%= company.name %><br>
+	<li>Created by User: <%= company.user.email %></li>
+	<li>Decsription: <%= company.description %></li>
+	<li>Address: <%= company.address %></li>
+	<li>Email: <%= company.email%></li>
+	<li>Phone number: <%= company.phone_number%></li>
+	<li id="verification_status">Status: <%= company.verified ? "Approved" : "Pending"%></li>
+	<% if !company.verified %>
+		<%= link_to 'Approve this company', verify_path(company), method: :patch, id:"verify_link", remote: true%>
+	<% else %>
+		<%= link_to 'Disapprove this company', verify_path(company), method: :patch, id:"verify_link", remote: true%>
+	<% end %>
+	<br>
+	<%= link_to 'Delete this company', admin_path(company), method: :delete, remote: true, data:{confirm: "Are you sure?"} %>
+	<br>
+	<br>
+<% end %> 
