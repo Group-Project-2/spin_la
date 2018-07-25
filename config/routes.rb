@@ -29,6 +29,6 @@ resources :welcome, only: [:index]
 
 resources :companies
 
-patch 'deals/:id/spin' => "deals#spin", as: "spin"
+patch "deals/:id/spin" => "deals#spin", as: "spin"
 
 end
