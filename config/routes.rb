@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
-  #Change path when needed
+  
 
   constraints Clearance::Constraints::SignedIn.new do
     root to: 'welcome#index', as: :root
@@ -28,4 +28,7 @@ resources :deals
 resources :welcome, only: [:index]
 
 resources :companies
+
+patch 'deals/:id/spin' => "deals#spin", as: "spin"
+
 end

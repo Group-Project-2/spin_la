@@ -1,0 +1,2 @@
+$('#status-<%=current_user.id%>').text("Spins available: <%= current_user.spins_remaining %>")
+$('#no_spin').text("<%= flash[:alert] %>")
