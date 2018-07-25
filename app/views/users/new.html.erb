@@ -6,10 +6,6 @@
   <%= form_for @user do |form| %>
     <%= render partial: '/users/form', object: form %>
 
-    <div>
-      <hr style="margin-top: 30px;">
-    </div>
-
     <div class="submit-field">
       <%= form.submit :class => "sign-up-submit btn btn-outline-dark btn-block" %>
       <%= link_to "Sign In With Google", "/auth/google_oauth2", :role => "button", :class => "btn btn-outline-dark btn-block" %>
