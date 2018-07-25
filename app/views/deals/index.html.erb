@@ -1,5 +1,6 @@
 <%= link_to 'Sign Up as a Business', new_company_path %>
 </br>
+<%= link_to 'My Profile', user_path(@user) %>
 <p>Welcome <%= current_user.last_name %></p>
 <p>Spins available: <%= current_user.spins_remaining %></p>
 

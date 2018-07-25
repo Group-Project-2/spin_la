@@ -1,4 +1,4 @@
-Hello from Profile Page
+<p><%= @user.first_name %>'s Profile Page</p>
 <!-- Link to switch view from user to company, if company available-->
 <!-- 
 <#% if current_user.role == "business" %>
@@ -6,4 +6,11 @@ Hello from Profile Page
 	<#%= link_to "Switch to Company View", company_path(@company) %>
 <#% end %> -->
 
-<!-- View for the deals won as user (In progress) -->
+<p>Deals won:</p>
+<ul>
+<% @user.deals_won.each do |deal| %>
+	<li><%= Deal.find(deal).company.name %>,
+	<%= Deal.find(deal).description %></li>
+	</br> 
+<% end %>
+</ul>

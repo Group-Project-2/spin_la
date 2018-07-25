@@ -12,6 +12,15 @@ class UsersController < Clearance::UsersController
 			user.last_name = last_name
 			user.first_name = first_name
 		end
-		
+
 	end
+
+	def show
+		@user = User.find(current_user.id)
+	end
+
+	# private
+	# def user_params
+	# 	params.require(:user).permit(:email, :password, :first_name, :last_name)
+	# end
 end
