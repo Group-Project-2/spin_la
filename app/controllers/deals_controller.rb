@@ -2,7 +2,7 @@ class DealsController < ApplicationController
 
 	def index
 		@user = current_user
-		@deals = Deal.alls
+		@deals = Deal.all
 	end
 
 	def new
