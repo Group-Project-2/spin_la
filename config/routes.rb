@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
-
+  
   get "/" => "welcome#index"
 
   # constraints Clearance::Constraints::SignedIn.new do
@@ -29,6 +29,6 @@ resources :welcome, only: [:index]
 
 resources :companies
 
-patch 'deals/:id/spin' => "deals#spin", as: "spin"
+patch "deals/:id/spin" => "deals#spin", as: "spin"
 
 end
