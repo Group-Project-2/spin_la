@@ -12,12 +12,12 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+  
+  get "/" => "welcome#index"
 
-  get "/" => "welcome#index", as: "root"
-
-  constraints Clearance::Constraints::SignedIn.new do
-    root to: "deals#index"
-  end
+  # constraints Clearance::Constraints::SignedIn.new do
+  #   root to: 'welcome#index', as: :root
+  # end
 
   constraints Clearance::Constraints::SignedOut.new do
     root to: "clearance/sessions#new"
