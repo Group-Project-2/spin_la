@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-	before_action :find_company, only: [:show]
+	before_action :find_company, only: [:show, :public]
 
 	def new
 		@company = Company.new
@@ -18,6 +18,10 @@ class CompaniesController < ApplicationController
 	end
 
 	def show
+
+	end
+
+	def public
 
 	end
 
