@@ -13,11 +13,11 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
-  
+  get "/" => "welcome#index"
 
-  constraints Clearance::Constraints::SignedIn.new do
-    root to: 'welcome#index', as: :root
-  end
+  # constraints Clearance::Constraints::SignedIn.new do
+  #   root to: 'welcome#index', as: :root
+  # end
 
   constraints Clearance::Constraints::SignedOut.new do
     root to: "clearance/sessions#new"
