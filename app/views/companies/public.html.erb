@@ -5,7 +5,6 @@
 <li>Phone number: <%= @company.phone_number%></li>
 </br>
 
-<p>See all reviews here:</p>
 <%= link_to 'See all reviews', company_reviews_path(@company)%>
 
 
@@ -21,4 +20,4 @@
 	</br>
 <% end %>
 
-<%= button_to 'Review company now!', new_company_review_path(@company) %>
+<%= link_to 'Review company now!', new_company_review_path(@company) %>

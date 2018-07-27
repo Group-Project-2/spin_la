@@ -6,14 +6,17 @@ class ReviewsController < ApplicationController
 
 	def new
 		@review = Review.new
+		@company = Company.find(params[:company_id])
 	end
 
 	def create
 		@review = Review.new(review_params)
 		@review.user_id = current_user.id
+		@review.company_id = params[:company_id]
 		
 		if @review.save
 			#Alert review has been saved
+			redirect_to root_path
 		else
 			#What happens
 		end
