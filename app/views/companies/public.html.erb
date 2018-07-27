@@ -14,7 +14,11 @@
 	<li>Review Title: <%= review.title %></li>
 	<li>Description: <%= review.description %></li>
 	<li>Rating: <%= review.stars %></li>
-	<p><%= link_to 'Report this review', report_path(review), method: :patch %></p></br>
+	<% if !review.reported && review.user_id != current_user.id %>
+		<p><%= link_to 'Report this review', report_path(review), method: :patch, remote: true, id: "report_review" %></p>
+	<% elsif review.reported == true %>
+		<p><%= link_to 'Report this review', report_path(review), method: :patch, remote: true, id: "review_reported" %></p>
+	<% end %></br>
 <% end %>
 </br>
 
