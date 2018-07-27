@@ -1,10 +1,9 @@
 <p><%= @user.first_name %>'s Profile Page</p>
 <!-- Link to switch view from user to company, if company available-->
-<!-- 
-<#% if current_user.role == "business" %>
-	<#% @company = Company.find_by(user_id: current_user.id) %>
-	<#%= link_to "Switch to Company View", company_path(@company) %>
-<#% end %> -->
+<% if current_user.role == "business" %>
+	<% @company = Company.find_by(user_id: current_user.id) %>
+	<%= link_to "Switch to Company View", company_path(@company) %>
+<% end %>
 
 <p>Deals won:</p>
 <ul>
