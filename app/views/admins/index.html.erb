@@ -18,3 +18,17 @@
 	<br>
 	<br>
 <% end %> 
+
+<p>Reported reviews:</p>
+<% Review.all.each do |review| %>
+	<% if review.reported == true %>
+		<li>Review title: <%= review.title %></li>
+		<li>Review description: <%= review.description %></li>
+		<li>Review rating: <%= review.stars %></li>
+		<li>Review by: <%= review.user.email %></li>
+		<%= link_to 'Remove reported review', company_review_path(review.company_id, review.id), method: :delete, data:{confirm: "Are you sure?"} %>
+	<% end %>
+<% end %>
+
+
+
