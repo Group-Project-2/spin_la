@@ -16,6 +16,14 @@ class ReviewsController < ApplicationController
 		@review.company_id = params[:company_id]
 		
 		if @review.save
+			user = User.find(@review.user.id)
+			user.update(review_count: user.review_count += 1)
+
+				#Logic to award 2 spins on every 5th review
+				if user.review_count % 5 == 0
+					user.update(spins_remaining: user.spins_remaining += 2)
+					#Alert that user has won 2 free spins (WIP)
+				end
 			#Alert review has been saved (WIP)
 			redirect_to public_path(@company)
 		else
