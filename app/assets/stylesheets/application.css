@@ -312,7 +312,7 @@ input[name="deal[description]"] {
   margin: 10px 0;
   display: flex;
   left: 50%;
-  transform: translate(-33%, 0) rotateY(180deg);
+  transform: translate(-22%, 0) rotateY(180deg);
 }
 
 .rating input {
@@ -323,7 +323,7 @@ input[name="deal[description]"] {
   display: block;
   cursor: pointer;
   width: 50px;
-  margin: 0 10px;
+  margin: 0 5px;
 }
 
 .rating label:before {
@@ -331,8 +331,8 @@ input[name="deal[description]"] {
   font-family: "Font Awesome\ 5 Free";
   position: relative;
   display: block;
-  font-size: 50px;
-  color: #101010;
+  font-size: 30px;
+  color: #ccc;
 }
 
 .rating label:after {
@@ -340,12 +340,12 @@ input[name="deal[description]"] {
   font-family: "Font Awesome\ 5 Free";
   position: absolute;
   display: block;
-  font-size: 50px;
-  color: yellow;
+  font-size: 30px;
+  color: rgba(11, 146, 170, 0.979);
   top: 0;
   opacity: 0;
   transition: .5s;
-  text-shadow: 0 2px 5px rgba(0,0,0,.5);
+  text-shadow: 0 2px 5px rgba(5, 99, 116, 0.5);
 }
 
 .rating label:hover:after,
