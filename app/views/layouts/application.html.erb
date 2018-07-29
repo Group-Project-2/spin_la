@@ -26,8 +26,20 @@
         <ul class="nav navbar-nav navbar-right">
           <% if signed_in? -%>
           <li class="nav-item">
-            <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
+            <p class="mt-2">Spins: <%= current_user.spins_remaining %></p>
           </li>
+          <li class="nav-item">
+            <%= link_to 'Sign Up as a Business', new_company_path, :class => "mt-2", :style => "display: block;" %>
+          </li>
+          <div class="dropdown">
+            <a class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <%= link_to 'My Profile', user_path(current_user), :class => "dropdown-item" %>
+              <%= link_to t(".sign_out"), sign_out_path, :class => "dropdown-item", method: :delete %>
+            </div>
+          </div>
           <% else -%>
           <li class="nav-item">
             <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
