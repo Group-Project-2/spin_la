@@ -298,3 +298,12 @@ input[name="deal[description]"] {
   height: 70%;
   color: #000;
 }
+
+.btn-transparent {
+  background: transparent;
+  color: #fff;
+}
+
+.btn-transparent:hover {
+  color: #eee;
+}
