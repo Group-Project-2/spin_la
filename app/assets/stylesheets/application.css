@@ -163,7 +163,12 @@
    box-shadow: 7px 6px 160px -5px rgba(0,0,0,0.39);
  }
 
- .sign-up, .sign-in, .password-reset, .deals, .company {
+ .sign-up,
+ .sign-in,
+ .password-reset,
+ .deals,
+ .company,
+ .review {
    max-width: 580px;
    margin-top: 50px;
    font-weight: bold;
@@ -173,13 +178,19 @@
  .sign-in .title,
  .password-reset .title,
  .company .title,
- .deals .title {
+ .deals .title,
+ .review .title {
    background-color: midnightblue;
    border-top-left-radius: 8px;
    border-top-right-radius: 8px;
  }
 
- .sign-up h2, .sign-in h2, .password-reset h2, .company h2, .deals h2 {
+ .sign-up h2,
+ .sign-in h2,
+ .password-reset h2,
+ .company h2,
+ .deals h2,
+ .review h2 {
    text-align: center;
    color: #fff;
    margin-bottom: 0;
