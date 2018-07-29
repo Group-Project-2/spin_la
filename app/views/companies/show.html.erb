@@ -1,18 +1,48 @@
-<%= @company.name %>
-<li>Decsription: <%= @company.description %></li>
-<li>Address: <%= @company.address %></li>
-<li>Email: <%= @company.email%></li>
-<li>Phone number: <%= @company.phone_number%></li>
+<div class="container-fluid company-profile-div">
+	<div class="container">
+		<div class="row pt-4">
+			<div id="col-1" class="col-md-4">
+				<img src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1" alt="">
+			</div>
+			<div id="col-2" class="col-md-8 text-right">
+				<h1><%= @company.name %></h1>
+				<h2>
+					<i class="far fa-address-book"></i>
+					<%= @company.address %>
+				</h2>
+				<h2>
+					<i class="fas fa-phone-volume"></i>
+					<%= @company.phone_number %>
+				</h2>
+				<h2>
+					<i class="far fa-envelope"></i>
+					<%= @company.email %>
+				</h2>
+				<%= link_to 'Create new deal', new_deal_path, :role => "button", :class => "btn btn-light" %>
+			</div>
+		</div>
+	</div>
+</div>
 
-<% Deal.all.each do |deal| %>
-	<% if deal.company_id == @company.id%>
-		<strong><%= deal.description %></strong>
-		<li>Winning Odds: <%= (deal.odds_numerator)/(deal.odds_denominator).to_r %></li>
-		<li>Wins Remaining: <%= deal.wins_remaining %></li>
-		<br>
-	<% end %>
-<% end %>
-
-<%= link_to 'Create new deal', new_deal_path %>
+<div class="container-fluid company-deal-div">
+	<div class="container">
+		<div class="row">
+		<% Deal.all.each do |deal| %>
+		<div class="col-md-4 mt-4">
+			<div class="card text-center">
+				<div class="card-header">
+					<h3><%= deal.description %></h3>
+				</div>
+				<div class="card-body">
+					<img src="https://s3-ap-southeast-1.amazonaws.com/pizzahutmy/menu/BlazingSeafood-L-1486726693.png" alt="">
+					<p class="card-text">Winning Odds: <%= (deal.odds_numerator)/(deal.odds_denominator).to_r %></p>
+					<p class="card-text">Wins Remaining: <%= deal.wins_remaining %></p>
+				</div>
+			</div>
+		</div>
+		<% end %>
+		</div>
+	</div>
+</div>
 
 

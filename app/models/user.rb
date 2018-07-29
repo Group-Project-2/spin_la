@@ -1,7 +1,8 @@
 class User < ApplicationRecord
 	include Clearance::User
  	has_many :authentications, dependent: :destroy
- 	has_many :deals
+ 	has_many :deals, dependent: :destroy
+ 	has_many :reviews, dependent: :destroy
  	enum role: {consumer: 0, business: 1, admin: 2}
 
 

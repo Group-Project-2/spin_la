@@ -1,4 +1,5 @@
 class DealsController < ApplicationController
+	before_action :find_deal, only: [:show, :spin]
 
 	def index
 		@user = current_user
@@ -22,11 +23,9 @@ class DealsController < ApplicationController
 	end
 
 	def show
-		@deal = Deal.find(params[:id])
 	end
 
 	def spin
-		@deal = Deal.find(params[:id])
 		@win_odds = ((@deal.odds_numerator.to_f)/(@deal.odds_denominator.to_f))*100
 
 		if @deal.wins_remaining > 0
@@ -61,7 +60,9 @@ class DealsController < ApplicationController
 	end
 
 	private
-
+	def find_deal
+		@deal = Deal.find(params[:id])
+	end
 
 	def deal_params
 		params.require(:deal).permit(:wins_remaining, :odds_numerator, :odds_denominator, :description)

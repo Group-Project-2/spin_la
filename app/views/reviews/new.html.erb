@@ -1,0 +1,4 @@
+<%= form_for [@company, @review] do |form| %>
+  <%= render partial: '/reviews/form', object: form %>
+  <%= form.submit %>
+<% end %>
