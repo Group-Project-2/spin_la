@@ -27,9 +27,13 @@ resources :deals
 
 resources :welcome, only: [:index]
 
-resources :companies
+resources :companies do
+  resources :reviews
+end
 
 resources :admins, only: [:index, :destroy]
+
+
 
 patch "deals/:id/spin" => "deals#spin", as: "spin"
 
@@ -37,5 +41,6 @@ patch "companies/:id/verify" => "companies#verify", as: "verify"
 
 get "companies/:id/profile" => "companies#public", as: "public"
 
+patch "reviews/:id/report" => "reviews#report", as: "report"
 
 end

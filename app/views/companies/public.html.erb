@@ -3,8 +3,26 @@
 <li>Address: <%= @company.address %></li>
 <li>Email: <%= @company.email%></li>
 <li>Phone number: <%= @company.phone_number%></li>
+<li>Average rating: <%= '%.2f' % @company.reviews.average(:stars) %></li>
+</br>
 
+<%= link_to 'Review company now!', new_company_review_path(@company) %>
+</br>
 
+<p>Recent reviews, ordered by latest:</p>
+<% @company.reviews.order(created_at: :desc).each do |review| %>
+	<li>Review Title: <%= review.title %></li>
+	<li>Description: <%= review.description %></li>
+	<li>Rating: <%= review.stars %></li>
+	<% if !review.reported && review.user_id != current_user.id %>
+		<p><%= link_to 'Report this review', report_path(review), method: :patch, remote: true, id: "report_review" %></p>
+	<% elsif review.reported == true %>
+		<p><%= link_to 'Report this review', report_path(review), method: :patch, remote: true, id: "review_reported" %></p>
+	<% end %></br>
+<% end %>
+</br>
+
+<p>Deals on offer:</p>
 <% Deal.all.each do |deal| %>
 	<% if deal.company_id == @company.id%>
 		<% if deal.wins_remaining > 0 %>
@@ -16,3 +34,4 @@
 	<% end %>
 	</br>
 <% end %>
+

@@ -1,10 +1,3 @@
-<%= link_to 'Sign Up as a Business', new_company_path %>
-</br>
-<%= link_to 'My Profile', user_path(@user) %>
-<p>Welcome <%= current_user.last_name %></p>
-<p>Spins available: <%= current_user.spins_remaining %></p>
-
- 
 <% @deals.each do |deal| %>
 	<% if deal.wins_remaining > 0 %>
 		<strong><%= link_to "#{deal.company.name}", public_path(deal.company_id) %></strong></br>

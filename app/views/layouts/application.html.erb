@@ -3,6 +3,8 @@
 <head>
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   <!-- Application.css -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= csrf_meta_tag %>
@@ -24,8 +26,20 @@
         <ul class="nav navbar-nav navbar-right">
           <% if signed_in? -%>
           <li class="nav-item">
-            <%= link_to t(".sign_out"), sign_out_path, method: :delete %>
+            <p class="mt-2">Spins: <%= current_user.spins_remaining %></p>
           </li>
+          <li class="nav-item">
+            <%= link_to 'Sign Up as a Business', new_company_path, :class => "mt-2", :style => "display: block;" %>
+          </li>
+          <div class="dropdown">
+            <a class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <%= link_to 'My Profile', user_path(current_user), :class => "dropdown-item" %>
+              <%= link_to t(".sign_out"), sign_out_path, :class => "dropdown-item", method: :delete %>
+            </div>
+          </div>
           <% else -%>
           <li class="nav-item">
             <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
