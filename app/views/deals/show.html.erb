@@ -21,6 +21,7 @@
 					<p id="wins_remaining" class="card-text">Wins Remaining: <%= @deal.wins_remaining %></p>
           <p id="status-<%=current_user.id%>"> Spins available: <%= current_user.spins_remaining %></p>
           <%= link_to 'Spin', spin_path(@deal), method: :patch, remote: true, :role => "button", :class => "btn btn-block btn-lg btn-outline-dark" %>
+          <%= link_to 'Back to Deals Page', deals_path, :role => "button", :class => "btn btn-block btn-lg btn-outline-dark" %>
 				</div>
 			</div>
 		</div>
