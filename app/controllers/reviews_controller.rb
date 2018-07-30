@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
 					#Alert that user has won 2 free spins (WIP)
 				end
 			#Alert review has been saved (WIP)
-			redirect_to public_path(@company)
+			redirect_to company_path(@company)
 		else
 			#Alert review not saved (WIP)
 		end
@@ -33,17 +33,22 @@ class ReviewsController < ApplicationController
 
 	def report
 		if @review.reported == false
-			@review.update(reported: true, reported_by_user_id: current_user.id)
 			# Alert user that this review has been reported to admin. When admin approves, get free spin.
 			respond_to do |format|
-					format.js
-				end
-		else
-			# Alert review has already been reported to admin before. 
-			respond_to do |format|
-					format.js
-				end
+				format.js { render :json => @review }
+			end
+			@review.assign_attributes(reported: true, reported_by_user_id: current_user.id )
+			if @review.save
+			else
+				puts "error"
+			end
+		# else
+		# 	# Alert review has already been reported to admin before. 
+		# 	respond_to do |format|
+		# 			format.js
+		# 		end
 		end
+		# @review.update(reported: true, reported_by_user_id: current_user.id)
 	end
 
 	#This is confined to admin only
