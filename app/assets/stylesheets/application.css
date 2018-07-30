@@ -353,3 +353,27 @@ input[name="deal[description]"] {
 .rating input:checked ~ label:after {
   opacity: 1;
 }
+
+/*******************************
+          User Profile
+*******************************/
+
+#user_profile {
+  background-color: #6dd5ed;
+  height: 100vh;
+}
+
+#user_profile .btn-outline-light {
+    float: right;
+    margin-right: 40%;
+    margin-top: 30%;
+}
+
+#user_profile .img {
+  padding-top: 1.3%;
+}
+
+
+
+
+
