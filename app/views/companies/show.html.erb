@@ -22,7 +22,11 @@
 				</h2>
 				<h2 class="text-shadow">
 					<i class="far fa-star"></i>
-					<%= '%.2f' % @company.reviews.average(:stars) %>
+					<% if @company.reviews.average(:stars) == 0 || @company.reviews.average(:stars) == nil %>
+					<span>0</span>
+					<% else %>
+					<span><%= '%.2f' % @company.reviews.average(:stars) %></span>
+					<% end %>
 				</h2>
 			</div>
 		</div>
