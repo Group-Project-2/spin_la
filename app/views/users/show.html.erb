@@ -1,27 +1,28 @@
 <div id="user_profile">
-<div class="container-fluid">
-<div class="d-flex justify-content-around">
-	<div class="img col-sm-4">
-		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5lhdQy2fMHepvvvD04-W8o4hH0rvZaKD6CulU2zwpYLScps93ng">
-	</div>
-	<div class="col-md-8 p-4 mb-2">
-		<h2><%= @user.first_name %> <%= @user.last_name %></h2></br>
-		<h5>Baker by day, florist by night.</h5></br>
+	<div class="container-fluid">
+		<div class="d-flex justify-content-around">
+			<div class="img col-sm-4">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5lhdQy2fMHepvvvD04-W8o4hH0rvZaKD6CulU2zwpYLScps93ng">
+			</div>
 
-		Deals won:
+			<div class="col-md-8 p-4">
+				<h2><%= @user.first_name %> <%= @user.last_name %></h2>
+				<h5>Baker by day, florist by night.</h5>
+				<h5><%= @user.email %></h5>
 
-	</div>
+				Deals won:
 
-		<ul>
-			<% @user.deals_won.each do |deal| %>
-			<li><%= Deal.find(deal).company.name %>,
-				<%= Deal.find(deal).description %></li>
-			</br> 
-			<% end %>
-		</ul>
+			</div>
+
+			<ul>
+				<% @user.deals_won.each do |deal| %>
+				<li><%= Deal.find(deal).company.name %>,
+					<%= Deal.find(deal).description %></li>
+				</br> 
+				<% end %>
+			</ul>
 		</div>
 	</div>
-
 	<div class="btn btn-sm btn-outline-light">
 		<!-- Link to switch view from user to company, if company available-->
 		<% if current_user.role == "business" %>
