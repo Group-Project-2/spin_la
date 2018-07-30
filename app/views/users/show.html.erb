@@ -1,19 +1,39 @@
-<p><%= @user.first_name %>'s Profile Page</p>
-<!-- Link to switch view from user to company, if company available-->
-<% if current_user.role == "business" %>
-	<% @company = Company.find_by(user_id: current_user.id) %>
-	<%= link_to "Switch to Company View", company_path(@company) %>
-<% end %></br>
+<div id="user_profile">
+	<div class="container-fluid">
+		<div class="d-flex justify-content-around">
+			<div class="img col-sm-4">
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5lhdQy2fMHepvvvD04-W8o4hH0rvZaKD6CulU2zwpYLScps93ng">
+			</div>
 
-<% if @user.id == current_user.id %>
-	<%= link_to "Edit Profile", edit_user_path(@user), method: :get %>
-<% end %></br>
+			<div class="col-md-8 p-4">
+				<h2><%= @user.first_name %> <%= @user.last_name %></h2>
+				<h5>Baker by day, florist by night.</h5>
+				<h5><%= @user.email %></h5></br>
 
-<p>Deals won:</p>
-<ul>
-<% @user.deals_won.each do |deal| %>
-	<li><%= Deal.find(deal).company.name %>,
-	<%= Deal.find(deal).description %></li>
-	</br> 
-<% end %>
-</ul>
+				<% if @user.id == current_user.id %>
+					<%= link_to "Edit Profile", edit_user_path(@user), method: :get %>
+				<% end %></br>
+
+				Deals won:
+
+			</div>
+
+			<ul>
+				<% @user.deals_won.each do |deal| %>
+				<li><%= Deal.find(deal).company.name %>,
+					<%= Deal.find(deal).description %></li>
+				</br> 
+				<% end %>
+			</ul>
+		</div>
+	</div>
+	<div class="btn btn-sm btn-outline-light">
+		<!-- Link to switch view from user to company, if company available-->
+		<% if current_user.role == "business" %>
+		<% @company = Company.find_by(user_id: current_user.id) %>
+		<%= link_to "Switch to Company View", company_path(@company) %>
+		<% end %>
+	</div>
+
+</div>
+

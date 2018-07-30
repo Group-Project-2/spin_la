@@ -21,10 +21,10 @@
 				</h2>
 				<h2 class="text-shadow">
 					<i class="far fa-star"></i>
-					<% if @company.reviews ==  nil %>
-						<%= '%.2f' % @company.reviews.average(:stars) %>
+					<% if @company.reviews.average(:stars) == 0 || @company.reviews.average(:stars) == nil %>
+						<span>0</span>
 					<% else %>
-						<p>Company has no reviews yet.</p>
+						<span><%= '%.2f' % @company.reviews.average(:stars) %></span>
 					<% end %>
 				</h2>
 			</div>
@@ -63,17 +63,43 @@
 <div class="container">
 	<h1 class="text-white mt-4 text-shadow">Recent reviews, ordered by latest</h1>
 	<div class="row">
-			<% @company.reviews.order(created_at: :desc).each do |review| %>
-			<div class="col-md-4 my-4">
-				<div class="card card-shadow">
-					<div class="card-body">
-						<h5 class="card-title"><span>Title: </span><%= review.title %></h5>
-						<p class="card-text"><span>Description: </span><%= review.description %></p>
-						<p class="card-text"><span>Ratings: </span><%= review.stars %></p>
-						<!-- Condition to avoid the original reviewer or the company itself to report the review -->
-						
-							<p id="report_link_<%=review.id%>"><%= link_to 'Report this review', report_path(review), method: :patch, remote: true %></p>
+	
+		<% @company.reviews.order(created_at: :desc).each do |review| %>
+		<div class="col-md-4 my-4">
+			<div class="card card-shadow">
+				<div class="card-body">
+					<h5 class="card-title"><span>Title: </span><%= review.title %></h5>
+					<p class="card-text"><span>Description: </span><%= review.description %></p>
+					<p class="card-text">
+					<span>Ratings: 
+					<% if review.stars == 5 %>
+					<div class="star-color">
+						<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
 					</div>
+					<% elsif review.stars == 4 %>
+					<div>
+						<i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star grey-star"></i>
+					</div>
+					<% elsif review.stars == 3 %>
+					<div>
+						<i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i>
+					</div>
+					<% elsif review.stars == 2 %>
+					<div>
+						<i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i>
+					</div>
+					<% elsif review.stars == 1 %>
+					<div>
+						<i class="fas fa-star star-color"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i>
+					</div>
+					<% end %>
+					</span></p>
+					<!-- Condition to avoid the original reviewer or the company itself to report the review -->
+					<% if (!review.reported && review.user_id != current_user.id) && @company.user.id != current_user.id %>
+						<p><%= link_to 'Report this review', report_path(review), method: :patch, remote: true, id: "report_review" %></p>
+					<% elsif review.reported == true %>
+						<p><%= link_to 'Report this review', report_path(review), method: :patch, remote: true, id: "review_reported" %></p>
+					<% end %>
 				</div>
 			</div>
 			<% end %>
