@@ -1,5 +1,5 @@
 class DealsController < ApplicationController
-	before_action :find_deal, only: [:show, :spin, :edit, :destroy]
+	before_action :find_deal, only: [:show, :spin, :edit, :update, :destroy]
 
 	def index
 		@user = current_user
@@ -57,12 +57,11 @@ class DealsController < ApplicationController
 					format.js
 				end
 		end
+	end
 
-		def edit
-		end
-
-		def destroy
-		end
+	def destroy	
+			@deal.destroy
+  		redirect_to root_path
 	end
 
 	private
