@@ -3,7 +3,7 @@
 <li>Address: <%= @company.address %></li>
 <li>Email: <%= @company.email%></li>
 <li>Phone number: <%= @company.phone_number%></li>
-<li>Average rating: <%= @company.reviews.average(:stars) %></li>
+<li>Average rating: <%= '%.2f' % @company.reviews.average(:stars) %></li>
 </br>
 
 <%= link_to 'Review company now!', new_company_review_path(@company) %>
