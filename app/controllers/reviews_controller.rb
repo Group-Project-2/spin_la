@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
 					#Alert that user has won 2 free spins (WIP)
 				end
 			#Alert review has been saved (WIP)
-			redirect_to public_path(@company)
+			redirect_to company_path(@company)
 		else
 			#Alert review not saved (WIP)
 		end

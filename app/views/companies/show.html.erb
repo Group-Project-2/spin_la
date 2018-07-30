@@ -64,7 +64,30 @@
 				<div class="card-body">
 					<h5 class="card-title"><span>Title: </span><%= review.title %></h5>
 					<p class="card-text"><span>Description: </span><%= review.description %></p>
-					<p class="card-text"><span>Ratings: </span><%= review.stars %></p>
+					<p class="card-text">
+					<span>Ratings: 
+					<% if review.stars == 5 %>
+					<div class="star-color">
+						<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+					</div>
+					<% elsif review.stars == 4 %>
+					<div>
+						<i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star grey-star"></i>
+					</div>
+					<% elsif review.stars == 3 %>
+					<div>
+						<i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i>
+					</div>
+					<% elsif review.stars == 2 %>
+					<div>
+						<i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i>
+					</div>
+					<% elsif review.stars == 1 %>
+					<div>
+						<i class="fas fa-star star-color"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i>
+					</div>
+					<% end %>
+					</span></p>
 					<!-- Condition to avoid the original reviewer or the company itself to report the review -->
 					<% if (!review.reported && review.user_id != current_user.id) && @company.user.id != current_user.id %>
 						<p><%= link_to 'Report this review', report_path(review), method: :patch, remote: true, id: "report_review" %></p>
