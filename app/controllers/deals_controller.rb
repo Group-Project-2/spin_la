@@ -70,6 +70,6 @@ class DealsController < ApplicationController
 	end
 
 	def deal_params
-		params.require(:deal).permit(:wins_remaining, :odds_numerator, :odds_denominator, :description)
+		params.require(:deal).permit(:wins_remaining, :odds_numerator, :odds_denominator, :description, :deal_image)
 	end
 end
