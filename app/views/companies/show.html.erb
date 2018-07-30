@@ -20,6 +20,10 @@
 					<i class="far fa-envelope"></i>
 					<%= @company.email %>
 				</h2>
+				<h2 class="text-shadow">
+					<i class="far fa-star"></i>
+					<%= '%.2f' % @company.reviews.average(:stars) %>
+				</h2>
 			</div>
 		</div>
 	</div>
