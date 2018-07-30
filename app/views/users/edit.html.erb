@@ -1,0 +1,23 @@
+<div class="container deals">
+  <div class="title">
+    <h2>Edit Profile</h2>
+  </div>
+  
+  <%= form_for @user, :html => {:multipart => true} do |form| %>
+	<div class="text-field">
+  		<%= form.label :first_name %>
+  		<%= form.text_field :first_name %>
+	</div>
+
+	<div class="text-field">
+  		<%= form.label :last_name %>
+  		<%= form.text_field :last_name %>
+	</div>
+
+	<div class = "file-field">
+		<%= form.label :profile_picture %>
+    	<%= form.file_field :profilepic %>
+  	</div>
+  	<%= form.submit %>
+ <% end %>
+</div>

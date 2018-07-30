@@ -3,7 +3,11 @@
 <% if current_user.role == "business" %>
 	<% @company = Company.find_by(user_id: current_user.id) %>
 	<%= link_to "Switch to Company View", company_path(@company) %>
-<% end %>
+<% end %></br>
+
+<% if @user.id == current_user.id %>
+	<%= link_to "Edit Profile", edit_user_path(@user), method: :get %>
+<% end %></br>
 
 <p>Deals won:</p>
 <ul>
