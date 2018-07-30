@@ -1,6 +1,6 @@
-$('#status-<%=current_user.id%>').text("Spins available: <%= current_user.spins_remaining %>")
-$('#no_win').text("<%= flash[:notice] %>")
-$('#no_spin').text("<%= flash[:alert] %>")
-$('#spin_win').text("<%= flash[:success] %>")
-$('#spin_lose').text("<%= flash[:error] %>")
-$('#wins_remaining').text("Wins Remaining: <%= @deal.wins_remaining %>")
+$('#status-<%=current_user.id%>').text("Spins available: <%= current_user.spins_remaining %>");
+$('#no_win').text("<%= flash[:notice] %>");
+$('#no_spin').text("<%= flash[:alert] %>");
+$('#spin_win').text("<%= flash[:success] %>").fadeIn(300);
+$('#spin_lose').text("<%= flash[:error] %>");
+$('#wins_remaining').text("Wins Remaining: <%= @deal.wins_remaining %>");
