@@ -391,7 +391,11 @@ input[name="deal[description]"] {
 
 #user_profile .container-fluid {
   text-shadow: 2px 2px 12px #1C6EA4;
-  padding-left: 65px;
+  padding-left: 15px;
+}
+
+#user_profile .card-deck {
+  margin-top: 200px;
 }
 
 #deals {
@@ -416,3 +420,4 @@ input[name="deal[description]"] {
 .bg-win {
   background: rgb(155, 82, 238);
 }
+
