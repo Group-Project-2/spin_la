@@ -34,22 +34,17 @@ class ReviewsController < ApplicationController
 
 	def report
 		if @review.reported == false
-			# Alert user that this review has been reported to admin. When admin approves, get free spin.
+			flash.now[:notice] = "Free Spins!"
 			respond_to do |format|
-				format.js { render :json => @review }
+				format.js
 			end
-			@review.assign_attributes(reported: true, reported_by_user_id: current_user.id )
-			if @review.save
-			else
-				puts "error"
+			@review.update(reported: true, reported_by_user_id: current_user.id )
+		elsif @review.reported == true
+			flash.now[:alert] = "Review has already been reported!" 
+			respond_to do |format|
+				format.js
 			end
-		# else
-		# 	# Alert review has already been reported to admin before. 
-		# 	respond_to do |format|
-		# 			format.js
-		# 		end
-		end
-		# @review.update(reported: true, reported_by_user_id: current_user.id)
+		end		
 	end
 
 	def unreport
