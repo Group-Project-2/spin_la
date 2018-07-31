@@ -455,13 +455,14 @@ input[name="deal[description]"] {
 *******************************/
 
 #user_profile {
-  background-color: #6dd5ed;
-  background-size: cover;
+  /*background-color: #6dd5ed;*/
+  background-image: url("https://images.pexels.com/photos/304664/pexels-photo-304664.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+/*  background-size: cover;*/
 }
 
 #user_profile .btn-outline-light {
-    margin-left: 40%;
-    margin-top: 100px;
+  margin-left: 40%;
+  margin-top: 100px;
 }
 
 #user_profile .img {
