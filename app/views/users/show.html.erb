@@ -9,26 +9,36 @@
 				<h2><%= @user.first_name %> <%= @user.last_name %></h2>
 				<h5>Baker by day, florist by night.</h5>
 				<h5><%= @user.email %></h5>
-
-				Deals won:
-
 			</div>
-
-			<ul>
-				<% @user.deals_won.each do |deal| %>
-				<li><%= Deal.find(deal).company.name %>,
-					<%= Deal.find(deal).description %></li>
-				</br> 
-				<% end %>
-			</ul>
 		</div>
-	</div>
-	<div class="btn btn-sm btn-outline-light">
-		<!-- Link to switch view from user to company, if company available-->
-		<% if current_user.role == "business" %>
-		<% @company = Company.find_by(user_id: current_user.id) %>
-		<%= link_to "Switch to Company View", company_path(@company) %>
+
+		<br><h5 style="padding-left: 15px;">Deals won:</h5>
+
+		<% @user.deals_won.each do |deal| %>
+		<div class="card-deck">
+			<div class="card">
+
+				<div class="card-body">
+					<h5 class="card-title"><%= Deal.find(deal).company.name %></h5>
+					<p class="card-text"><%= Deal.find(deal).description %></p>
+				</div>
+
+				<div class="card-footer">
+					<small class="text-muted">Last updated 3 mins ago</small>
+				</div>
+			</div>
+		</div>
 		<% end %>
+
+		<div class="btn btn-sm btn-outline-light">
+			<!-- Link to switch view from user to company, if company available-->
+			<% if current_user.role == "admin" || current_user.role == "business" %> 
+			<% @company = Company.find_by(user_id: current_user.id) %>
+			<%= link_to "Switch to Company View", company_path(@company) %>
+			<% end %>
+			
+		</div>
+
 	</div>
 
 </div>

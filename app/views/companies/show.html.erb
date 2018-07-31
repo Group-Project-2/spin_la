@@ -103,9 +103,11 @@
 		</div>
 		<% end %>
 	</div>
+
 	<% if current_user.role == "consumer" %>
 	<%= link_to 'Write a Review', new_company_review_path(@company), :role => "button", :class => "btn btn-lg btn-transparent mt-2 mb-4 card-shadow text-shadow" %>
 	<% end %>
+	
 </div>
 
 </div>
