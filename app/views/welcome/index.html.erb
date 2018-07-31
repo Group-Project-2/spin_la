@@ -1,9 +1,11 @@
-
 <div id="landing-header">
 
   <div id="landing-body">
-    <h1>Greetings!</h1>
+  <!--
+    <h1>Title of Your Product, Service or Event</h1>
+    <p>It's a tag line, where you can write a key point of your idea.</p>
 	  <a href="/listings" class="btn btn-info btn-lg" style="opacity:.7;">View All Listings</a>
+  -->
   </div>
 
   <ul class="slideshow">
@@ -16,6 +18,64 @@
 
 </div>
 
-<div class="container">
-  <h1>Hello!</h1>
+<div class="container-fluid landing-title-div">
+  <div class="row">
+    <div class="col-lg-6 landing-title landing-title-1">
+      <div class="container">
+        <h1>Great Title, Great Food</h1>
+        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum nesciunt neque ipsam ea vero fugiat molestias explicabo, nemo quam incidunt porro maxime similique, eius eligendi accusamus soluta unde. Aut aspernatur consequatur nulla, alias, temporibus a in laudantium voluptatibus ut, voluptas libero eligendi. Delectus totam enim, voluptatibus aspernatur maiores id porro.</h4>
+      </div>      
+     
+    </div>
+    <div class="col-lg-6 landing-title landing-title-2">
+      <div class="container">
+        <h1>Great Title, Great Food</h1>
+        <h4>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus aliquam perspiciatis perferendis, fugit ratione, vel reprehenderit atque consequuntur quibusdam facilis nemo amet exercitationem, odit voluptatibus! Quidem atque, earum nam labore consequatur provident est in porro dicta odit, sed, optio fuga eos nihil! Eaque, sint. Et dignissimos eum minus nam. Voluptates!</h4>
+      </div>
+      
+    </div>
+  </div>
 </div>
+
+<div class="container-fluid content">
+  <div class="content-container">
+    <h1 class="text-white">Deals Offered by Top Companies</h1>
+    <div class="row">
+    <% @deals.each do |deal| %>
+      <% if deal.wins_remaining > 0 %>
+				<div class="col-md-4 mb-4">
+					<div class="card card-shadow text-center">
+						<div class="card-body">
+							<img src="https://s3-ap-southeast-1.amazonaws.com/pizzahutmy/menu/BlazingSeafood-L-1486726693.png" alt="">
+							<p class="card-text">Winning Odds: <%= (deal.odds_numerator)/(deal.odds_denominator).to_r %></p>
+							<p class="card-text">Wins Remaining: <%= deal.wins_remaining %></p>
+							<p class="card-text">Offered by: <%= link_to "#{deal.company.name}", company_path(deal.company_id) %></p>
+							<%= link_to 'Show Deal', deal_path(deal), :role => "button", :class => "btn btn-block btn-lg btn-outline-dark"  %>
+						</div>
+					</div>
+				</div>
+			<% end %>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid">
+  <div class="row footer-container">
+    <div class="col-md-4">
+      <h1>Spin Lah!</h1>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo consequuntur ipsum minus repellat adipisci odit, aut eaque optio perferendis, voluptatem aperiam iusto dicta impedit! Sed fuga nesciunt assumenda perspiciatis dolor!</p>
+    </div>
+
+    <div class="col-md-4">
+      <h1>Spin Lah!</h1>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo consequuntur ipsum minus repellat adipisci odit, aut eaque optio perferendis, voluptatem aperiam iusto dicta impedit! Sed fuga nesciunt assumenda perspiciatis dolor!</p>
+    </div>
+
+    <div class="col-md-4">
+      <h1>Spin Lah!</h1>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae deleniti assumenda facilis quam autem explicabo eum. Ut laborum, veniam iusto ullam fugiat tempora, quisquam possimus repudiandae perferendis similique eius doloremque corporis dolorum laudantium tenetur autem explicabo incidunt omnis quaerat animi ex fuga saepe. Excepturi sint distinctio quidem tempore, consectetur repudiandae veritatis perferendis porro doloremque quos libero ut modi officia autem esse consequuntur, laborum dolore saepe? Exercitationem incidunt error odio consectetur.</p>
+    </div>
+    
+  </div>
+</footer>
