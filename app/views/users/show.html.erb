@@ -1,5 +1,6 @@
 <div id="user_profile">
 	<div class="container-fluid">
+
 		<div class="d-flex justify-content-around">
 			<div class="img col-sm-4">
 				<!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5lhdQy2fMHepvvvD04-W8o4hH0rvZaKD6CulU2zwpYLScps93ng"> -->
@@ -19,32 +20,30 @@
 		</div>
 
 		<br><h5 style="padding-left: 15px;">Deals won:</h5>
-
+		
 		<% @user.deals_won.each do |deal| %>
-		<div class="card-deck">
-			<div class="card">
+			<div class="card-deck">
+				<div class="card">
 
-				<div class="card-body">
-					<h5 class="card-title"><%= Deal.find(deal).company.name %></h5>
-					<p class="card-text"><%= Deal.find(deal).description %></p>
-				</div>
+					<div class="card-body">
+						<h5 class="card-title"><%= Deal.find(deal).company.name %></h5>
+						<p class="card-text"><%= Deal.find(deal).description %></p>
+					</div>
 
-				<div class="card-footer">
-					<small class="text-muted">Last updated 3 mins ago</small>
+					<div class="card-footer">
+						<small class="text-muted">Last updated 3 mins ago</small>
+					</div>
 				</div>
 			</div>
-		</div>
 		<% end %>
 
 		<div class="btn btn-sm btn-outline-light">
 			<!-- Link to switch view from user to company, if company available-->
 			<% if current_user.role == "admin" || current_user.role == "business" %> 
-			<% @company = Company.find_by(user_id: current_user.id) %>
-			<%= link_to "Switch to Company View", company_path(@company) %>
+				<% @company = Company.find_by(user_id: current_user.id) %>
+				<%= link_to "Switch to Company View", company_path(@company) %>
 			<% end %>
-			
 		</div>
 
 	</div>
-
 </div>
