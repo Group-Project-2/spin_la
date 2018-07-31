@@ -65,52 +65,6 @@
 </div>
 
 <div class="container">
-    <h1 class="text-white mt-4 text-shadow">Recent reviews, ordered by latest</h1>
-    <div class="row">
-        <% @company.reviews.order(created_at: :desc).each do |review| %>
-        <div class="col-md-4 my-4">
-            <div class="card card-shadow">
-                <div class="card-body">
-                    <h5 class="card-title"><span>Title: </span><%= review.title %></h5>
-                    <p class="card-text"><span>Description: </span><%= review.description %></p>
-                    <p class="card-text">
-                    <span>Ratings: 
-                    <% if review.stars == 5 %>
-                    <div class="star-color">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <% elsif review.stars == 4 %>
-                    <div>
-                        <i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star grey-star"></i>
-                    </div>
-                    <% elsif review.stars == 3 %>
-                    <div>
-                        <i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i>
-                    </div>
-                    <% elsif review.stars == 2 %>
-                    <div>
-                        <i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i>
-                    </div>
-                    <% elsif review.stars == 1 %>
-                    <div>
-                        <i class="fas fa-star star-color"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i>
-                    </div>
-                    <% end %>
-                    </span></p>
-                    <!-- Condition to avoid the original reviewer or the company itself to report the review -->
-                    <% if (!review.reported && review.user_id != current_user.id) && @company.user.id != current_user.id %>
-                        <p><%= link_to 'Report this review', report_path(review), method: :patch, remote: true, id: "report_review" %></p>
-                    <% elsif review.reported == true %>
-                        <p>This review has been reported, pending admin's review and action.</p>
-                    <% end %>
-                </div>
-            </div>
-        </div>
-        <% end %>
-    </div>
-    <% if current_user.role == "consumer" %>
-    <%= link_to 'Write a Review', new_company_review_path(@company), :role => "button", :class => "btn btn-lg btn-transparent mt-2 mb-4 card-shadow text-shadow" %>
-    <% end %>
 	<h1 class="text-white mt-4 text-shadow">Recent reviews, ordered by latest</h1>
 	<div class="row">
 		<% @company.reviews.order(created_at: :desc).each do |review| %>
