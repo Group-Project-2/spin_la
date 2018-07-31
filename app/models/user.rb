@@ -5,6 +5,8 @@ class User < ApplicationRecord
  	has_many :reviews, dependent: :destroy
  	enum role: {consumer: 0, business: 1, admin: 2}
 
+ 	mount_uploader :profilepic, ProfilepicUploader
+
 
  	validates :email,
 				 		presence: { message: "Email must not be blank."},

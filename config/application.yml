@@ -11,3 +11,8 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 GOOGLE_APP_ID: '945385204046-fkp9mncrspug31bounjki5pa6n78jmsf.apps.googleusercontent.com'
 GOOGLE_APP_SECRET: 'JaHTyt7gOdzzEnkjD6nWKKZ_'
+
+AWS_ACCESS_KEY_ID: 'AKIAJDIEG5EJE63SIJUA'
+AWS_SECRET_ACCESS_KEY: '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'
+S3_BUCKET_NAME: 'admin-airbnb'
+AWS_REGION: 'ap-southeast-1' #Singapore

@@ -1,10 +1,12 @@
 <div class="container-fluid company-profile">
-
 <div class="container-fluid company-profile-div">
 	<div class="container">
 		<div class="row pt-4">
 			<div id="col-1" class="col-md-4">
-				<img src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1" alt="">
+				<% @company.avatars.each do |avatar| %>
+					<img src="<%= avatar %>">
+					<% end %><br />
+				<!-- <img src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1" alt=""> -->
 			</div>
 			<div id="col-2" class="col-md-8 text-right">
 				<h1 class="text-shadow"><%= @company.name %></h1>
@@ -23,9 +25,9 @@
 				<h2 class="text-shadow">
 					<i class="far fa-star"></i>
 					<% if @company.reviews.average(:stars) == 0 || @company.reviews.average(:stars) == nil %>
-					<span>0</span>
+						<span>0</span>
 					<% else %>
-					<span><%= '%.2f' % @company.reviews.average(:stars) %></span>
+						<span><%= '%.2f' % @company.reviews.average(:stars) %></span>
 					<% end %>
 				</h2>
 			</div>
@@ -33,7 +35,7 @@
 	</div>
 </div>
 
-<div class="container-fluid company-deal-div">
+<div class="container-fluid company-profiledeal-div">
 	<div class="container">
 		<h1 class="text-white mt-4 text-shadow">Company's Deals</h1>
 		<div class="row">
@@ -44,22 +46,71 @@
 					<h3><%= deal.description %></h3>
 				</div>
 				<div class="card-body">
-					<img src="https://s3-ap-southeast-1.amazonaws.com/pizzahutmy/menu/BlazingSeafood-L-1486726693.png" alt="">
+					<p><%= image_tag deal.deal_image_url.to_s %></p>
+					<!-- <img src="https://s3-ap-southeast-1.amazonaws.com/pizzahutmy/menu/BlazingSeafood-L-1486726693.png" alt=""> -->
 					<p class="card-text">Winning Odds: <%= (deal.odds_numerator)/(deal.odds_denominator).to_r %></p>
 					<p class="card-text">Wins Remaining: <%= deal.wins_remaining %></p>
 					<% if current_user.role == "business" && @company.user.id == current_user.id %>
-						<%= link_to 'Delete this deal', deal_path, method: :delete, :role => "button", :class => "btn btn-lg btn-block btn-outline-dark mt-4 card-shadow text-shadow" %>
+						<%= link_to 'Delete this deal', deal_path(deal), method: :delete, :role => "button", :class => "btn btn-lg btn-block btn-outline-dark mt-4 card-shadow text-shadow" %>
 					<% end %>
 				</div>
 			</div>
 		</div>
 		<% end %>
 		</div>
+		<% if current_user.role == "business" && @company.user.id == current_user.id %>
 		<%= link_to 'Create new deal', new_deal_path, :role => "button", :class => "btn btn-lg btn-transparent mt-4 card-shadow text-shadow" %>
+		<% end %>
 	</div>
 </div>
 
 <div class="container">
+    <h1 class="text-white mt-4 text-shadow">Recent reviews, ordered by latest</h1>
+    <div class="row">
+        <% @company.reviews.order(created_at: :desc).each do |review| %>
+        <div class="col-md-4 my-4">
+            <div class="card card-shadow">
+                <div class="card-body">
+                    <h5 class="card-title"><span>Title: </span><%= review.title %></h5>
+                    <p class="card-text"><span>Description: </span><%= review.description %></p>
+                    <p class="card-text">
+                    <span>Ratings: 
+                    <% if review.stars == 5 %>
+                    <div class="star-color">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <% elsif review.stars == 4 %>
+                    <div>
+                        <i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star grey-star"></i>
+                    </div>
+                    <% elsif review.stars == 3 %>
+                    <div>
+                        <i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i>
+                    </div>
+                    <% elsif review.stars == 2 %>
+                    <div>
+                        <i class="fas fa-star star-color"></i><i class="fas fa-star star-color"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i>
+                    </div>
+                    <% elsif review.stars == 1 %>
+                    <div>
+                        <i class="fas fa-star star-color"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i><i class="fas fa-star grey-star"></i>
+                    </div>
+                    <% end %>
+                    </span></p>
+                    <!-- Condition to avoid the original reviewer or the company itself to report the review -->
+                    <% if (!review.reported && review.user_id != current_user.id) && @company.user.id != current_user.id %>
+                        <p><%= link_to 'Report this review', report_path(review), method: :patch, remote: true, id: "report_review" %></p>
+                    <% elsif review.reported == true %>
+                        <p><%= link_to 'Report this review', report_path(review), method: :patch, remote: true, id: "review_reported" %></p>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+    <% if current_user.role == "consumer" %>
+    <%= link_to 'Write a Review', new_company_review_path(@company), :role => "button", :class => "btn btn-lg btn-transparent mt-2 mb-4 card-shadow text-shadow" %>
+    <% end %>
 	<h1 class="text-white mt-4 text-shadow">Recent reviews, ordered by latest</h1>
 	<div class="row">
 		<% @company.reviews.order(created_at: :desc).each do |review| %>

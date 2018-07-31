@@ -26,8 +26,16 @@
     <%= form.text_field :phone_number, :required => "true", :autocomplete => "off" %>
   </p>
   <p>
+    <%= form.label :upload_photos %><br>
+    <%= form.file_field :avatars, multiple: true %>
+  </p>
+  <p>
     <%= form.submit :class => "sign-up-submit btn btn-outline-dark btn-block" %>
+  </p>
+  <p>
+    <%= link_to "Back to Deals Page", deals_path, :role => "button", :class => "sign-up-submit btn btn-outline-dark btn-block" %>
   </p>
 <% end %>
 
 </div>
+
