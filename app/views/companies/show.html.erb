@@ -101,7 +101,7 @@
                     <% if (!review.reported && review.user_id != current_user.id) && @company.user.id != current_user.id %>
                         <p><%= link_to 'Report this review', report_path(review), method: :patch, remote: true, id: "report_review" %></p>
                     <% elsif review.reported == true %>
-                        <p><%= link_to 'Report this review', report_path(review), method: :patch, remote: true, id: "review_reported" %></p>
+                        <p>This review has been reported, pending admin's review and action.</p>
                     <% end %>
                 </div>
             </div>
