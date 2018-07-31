@@ -31,7 +31,7 @@
         <ul class="nav navbar-nav navbar-right">
           <% if signed_in? -%>
           <li class="nav-item">
-            <p class="mt-2">Spins: <%= current_user.spins_remaining %></p>
+            <p class="mt-2" id="spins-left">Spins: <%= current_user.spins_remaining %></p>
           </li>
           <li class="nav-item">
             <%= link_to 'Sign Up as a Business', new_company_path, :class => "mt-2", :style => "display: block;" %>
