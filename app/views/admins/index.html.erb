@@ -26,8 +26,8 @@
 		<li>Review description: <%= review.description %></li>
 		<li>Review rating: <%= review.stars %></li>
 		<li>Review by: <%= review.user.email %></li>
-		<!-- What about if review is found not toxic??? -->
-		<p><%= link_to 'Remove reported review', company_review_path(review.company_id, review.id), method: :delete, data:{confirm: "Are you sure?"} %></p></br>
+		<li><%= link_to 'Unreport review', unreport_path(review.id) %></li>
+		<li><%= link_to 'Remove reported review', company_review_path(review.company_id, review.id), method: :delete, data:{confirm: "Are you sure?"} %></li></br>
 	<% end %>
 <% end %>
 

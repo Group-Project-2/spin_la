@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 	before_action :find_company, only: [:new, :create]
-	before_action :find_review, only: [:report, :destroy]
+	before_action :find_review, only: [:report, :unreport, :destroy]
 
 	def index
 		@reviews = Review.find_by(company_id: params[:id])
@@ -49,6 +49,11 @@ class ReviewsController < ApplicationController
 		# 		end
 		end
 		# @review.update(reported: true, reported_by_user_id: current_user.id)
+	end
+
+	def unreport
+		@review.update(reported: false, reported_by_user_id: nil)
+		redirect_to admins_path
 	end
 
 	#This is confined to admin only

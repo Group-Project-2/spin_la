@@ -42,5 +42,6 @@ patch "companies/:id/verify" => "companies#verify", as: "verify"
 get "companies/:id/profile" => "companies#public", as: "public"
 
 patch "reviews/:id/report" => "reviews#report", as: "report"
+get "reviews/:id/unreport" => "reviews#unreport", as: "unreport"
 
 end
