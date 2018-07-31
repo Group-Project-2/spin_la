@@ -7,7 +7,7 @@
   <%= form_for [@company, @review] do |form| %>
     <%= render partial: '/reviews/form', object: form %>
     <%= form.submit :class => "sign-up-submit btn btn-outline-dark btn-block mt-3" %>
-    <%= link_to "Back", public_path(@company), :role => "button", :class => "btn btn-outline-dark btn-block" %>
+    <%= link_to "Back", company_path(@company), :role => "button", :class => "btn btn-outline-dark btn-block" %>
   <% end %>
 
 </div>

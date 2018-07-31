@@ -28,6 +28,7 @@ class ReviewsController < ApplicationController
 			redirect_to company_path(@company)
 		else
 			#Alert review not saved (WIP)
+			redirect_to company_path(@company)
 		end
 	end
 
