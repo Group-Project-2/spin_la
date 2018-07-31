@@ -1,27 +1,45 @@
-<h2>Admin Panel:</h2></br>
+<div class="container-fluid">
+
+<h2 class="py-3">Admin Panel</h2>
 
 <p><%= link_to "Switch to Deals Page", deals_path %></p>
 
-<% @companies.each do |company| %>
-	<%= company.name %><br>
-	<li>Created by User: <%= company.user.email %></li>
-	<li>Decsription: <%= company.description %></li>
-	<li>Address: <%= company.address %></li>
-	<li>Email: <%= company.email%></li>
-	<li>Phone number: <%= company.phone_number%></li>
-	<li id="status-<%=company.id%>">Status: <%= company.verified ? "Approved" : "Pending"%></li>
-	<% if !company.verified %>
-		<%= link_to 'Approve this company', verify_path(company), method: :patch, id:"link-#{company.id}", remote: true%>
-	<% else %>
-		<%= link_to 'Disapprove this company', verify_path(company), method: :patch, id:"link-#{company.id}", remote: true%>
-	<% end %>
-	<br>
-	<%= link_to 'Delete this company', admin_path(company), method: :delete, remote: true, data:{confirm: "Are you sure?"} %>
-	<br>
-	<br>
-<% end %> 
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Created by User</th>
+      <th scope="col">Company's Address</th>
+			<th scope="col">Company's Email</th>
+			<th scope="col">Company's Phone</th>
+			<th scope="col">Status</th>
+			<th scope="col">Approved?</th>
+			<th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% @companies.each do |company| %>
+    <tr>
+      <th scope="row"><%= company.id %></th>
+			<td><%= company.name %></td>
+			<td><%= company.user.email %></td>
+			<td><%= company.address %></td>
+			<td><%= company.email %></td>
+			<td><%= company.phone_number %></td>
+			<td id="status-<%=company.id%>"><%= company.verified ? "Approved" : "Pending"%></td>
+			<% if !company.verified %>
+				<td><%= link_to 'Approve this company', verify_path(company), method: :patch, id:"link-#{company.id}", remote: true%></td>
+			<% else %>
+				<td><%= link_to 'Disapprove this company', verify_path(company), method: :patch, id:"link-#{company.id}", remote: true%></td>
+			<% end %>
+			<td><%= link_to 'Delete this company', admin_path(company), method: :delete, remote: true, data:{confirm: "Are you sure?"} %></td>
+    </tr>
+	<% end %> 
+  </tbody>
+</table>
 
-<h3>Reported reviews:</h3>
+<h3>Reported reviews</h3>
 <% Review.all.each do |review| %>
 	<% if review.reported == true %>
 		<li>Review title: <%= review.title %></li>
@@ -33,6 +51,10 @@
 		<li><%= link_to 'Remove reported review', company_review_path(review.company_id, review.id), method: :delete, data:{confirm: "Are you sure?"} %></li></br>
 	<% end %>
 <% end %>
+
+</div>
+
+
 
 
 
