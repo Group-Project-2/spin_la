@@ -327,6 +327,12 @@ input[type="password"]:focus {
   border-bottom: 2px solid #0f52ba; /* Colour -> Sapphire */
 }
 
+input[type="text"]:invalid,
+input[type="email"]:invalid,
+input[type="password"]:invalid {
+  border-bottom: 2px solid rgb(255, 3, 3); /* Colour -> Sapphire */
+}
+
 input[name="company[name]"],
 input[name="company[description]"],
 input[name="company[address]"],
@@ -628,12 +634,8 @@ input[name="deal[description]"] {
   text-align: center;
   font-size:36px;
   margin-left:-15px;
-  
   text-shadow: rgba(255, 255, 255, 0.1) 0px -1px 0px, rgba(0, 0, 0, 0.2) 0px 1px 0px;
 }
-
-
-
 
 #spin{
   width:68px;
