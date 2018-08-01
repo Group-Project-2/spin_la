@@ -239,6 +239,16 @@ footer {
   }
 }
 
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:3; } }
+
+.fade-in {
+  opacity:0;  /* make things invisible upon start */
+  -webkit-animation:fadeIn ease-in infinite;
+  -webkit-animation-duration:5s;
+  -webkit-animation-delay: 1.7s;
+}
+
   /*******************************
               FORM
  *******************************/
@@ -466,13 +476,13 @@ input[name="deal[description]"] {
 *******************************/
 
 #user_profile {
-  background-color: #6dd5ed;
-  background-size: cover;
+  /*background-color: #6dd5ed; */
+  /*background-size: cover;*/
 }
 
-#user_profile .btn-outline-light {
-    margin-left: 40%;
-    margin-top: 100px;
+#user_profile .btn-outline-dark {
+  margin-left: 40%;
+  margin-top: 80px;
 }
 
 #user_profile .img {
