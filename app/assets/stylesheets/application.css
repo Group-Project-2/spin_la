@@ -451,12 +451,12 @@ input[name="deal[description]"] {
 
 #user_profile {
   background-color: #6dd5ed;
-  height: 100vh;
+  background-size: cover;
 }
 
 #user_profile .btn-outline-light {
     margin-left: 40%;
-    margin-top: 300px;
+    margin-top: 100px;
 }
 
 #user_profile .img {
