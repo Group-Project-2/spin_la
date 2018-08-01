@@ -47,11 +47,13 @@
   transition: all .2s ease-in-out;
   color: #000 !important;
  }
+
 /*
  .card:hover {
   transform: scale(1.02);
  }
 */
+
  .dropdown {
   color: #000 !important;
  }
@@ -59,6 +61,10 @@
  .no img {
    width: 50px;
    height: 50px;
+ }
+
+ #flash {
+  font-size: 1.90rem;
  }
 
  /*******************************
