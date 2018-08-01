@@ -59,6 +59,12 @@ class DealsController < ApplicationController
 		end
 	end
 
+	def wheelspin
+		respond_to do |format|
+			format.json
+		end
+	end
+
 	def destroy	
 			@deal.destroy
   		redirect_to root_path

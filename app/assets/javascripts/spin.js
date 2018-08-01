@@ -5,16 +5,27 @@
 //load your JSON (you could jQuery if you prefer)
 function loadJSON(callback) {
 
-  var xobj = new XMLHttpRequest();
-  xobj.overrideMimeType("application/json");
-  xobj.open('GET', './wheel_data.json', true); 
-  xobj.onreadystatechange = function() {
-    if (xobj.readyState == 4 && xobj.status == "200") {
-      //Call the anonymous function (callback) passing in the response
-      callback(xobj.responseText);
+  // var xobj = new XMLHttpRequest();
+  // xobj.overrideMimeType("application/json");
+  // xobj.open('GET', './wheel_data.json', true); 
+  // xobj.onreadystatechange = function() {
+  //   if (xobj.readyState == 4 && xobj.status == "200") {
+  //     //Call the anonymous function (callback) passing in the response
+  //     callback(xobj.responseText);
+  //   }
+  // };
+  // xobj.send(null);
+
+  $.ajax({
+    method: "GET",
+    url: "wheelspin",
+    dataType: "json",
+    success: function(data){
+      // console.log("hello")
+      console.log(data);
     }
-  };
-  xobj.send(null);
+  })
+    
 }
 
 //your own function to capture the spin results
@@ -70,4 +81,6 @@ function init() {
 
 
 //And finally call it
-init();
+//init();
+
+loadJSON()
