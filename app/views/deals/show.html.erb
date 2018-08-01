@@ -42,16 +42,17 @@
                 </div>       
                
                 <div id="spin">
-                    <div id="inner-spin"></div>
+                  <%= link_to 'S', spin_path(@deal), method: :patch, remote: true, :role => "button", :id => "inner-spin", :class => "btn btn-block btn-lg btn-outline-dark" %>
                 </div>
-                
+
                 <div id="shine"></div>
+
               </div>
               </div>      
             <!-- </div> -->
           </div>
 
-          <%= link_to 'Spin', spin_path(@deal), method: :patch, remote: true, :role => "button", :class => "btn btn-block btn-lg btn-outline-dark" %>
+          <!-- <%= link_to 'Spin', spin_path(@deal), method: :patch, remote: true, :role => "button", :class => "btn btn-block btn-lg btn-outline-dark" %> -->
           <%= link_to 'Back to Deals Page', deals_path, :role => "button", :class => "btn btn-block btn-lg btn-outline-dark" %>
 				</div>
 			</div>
