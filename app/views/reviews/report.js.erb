@@ -1,2 +1,2 @@
-$('#report_review').text("Thank you for reporting this review. If found to be unjustified, admin will remove review and award you with a free spin.")
-$('#review_reported').text("This report is now under investigation by the admin.If found to be unverified, this review will be taken down.")
+$('#report_link_<%=@review.id%>').text("<%= flash[:notice] %><%= flash[:alert] %>")
+

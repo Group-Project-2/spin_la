@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
 	def index
+		@deals = Deal.all
+
 		if !current_user
 			render "welcome/index"
 		else

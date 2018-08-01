@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 	before_action :find_company, only: [:new, :create]
-	before_action :find_review, only: [:report, :destroy]
+	before_action :find_review, only: [:report, :unreport, :destroy]
 
 	def index
 		@reviews = Review.find_by(company_id: params[:id])
@@ -28,22 +28,28 @@ class ReviewsController < ApplicationController
 			redirect_to company_path(@company)
 		else
 			#Alert review not saved (WIP)
+			redirect_to company_path(@company)
 		end
 	end
 
 	def report
 		if @review.reported == false
-			@review.update(reported: true, reported_by_user_id: current_user.id)
-			# Alert user that this review has been reported to admin. When admin approves, get free spin.
+			flash.now[:notice] = "Free Spins!"
 			respond_to do |format|
-					format.js
-				end
-		else
-			# Alert review has already been reported to admin before. 
+				format.js
+			end
+			@review.update(reported: true, reported_by_user_id: current_user.id )
+		elsif @review.reported == true
+			flash.now[:alert] = "Review has already been reported!" 
 			respond_to do |format|
-					format.js
-				end
-		end
+				format.js
+			end
+		end		
+	end
+
+	def unreport
+		@review.update(reported: false, reported_by_user_id: nil)
+		redirect_to admins_path
 	end
 
 	#This is confined to admin only

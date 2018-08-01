@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
 	end
 
 	def create
-		@company = Company.new(listing_params)
+		@company = Company.new(company_params)
 		@company.user_id = current_user.id
 
 		if @company.save
@@ -45,8 +45,8 @@ class CompaniesController < ApplicationController
 		@company = Company.find(params[:id])
 	end
 
-	def listing_params
-		params.require(:company).permit(:name, :description, :address, :email, :phone_number)
+	def company_params
+		params.require(:company).permit(:name, :description, :address, :email, :phone_number, {avatars: []})
 	end
 end
 

@@ -36,9 +36,19 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
 gem 'clearance'
 gem 'figaro'
 gem 'omniauth-google-oauth2'
+
+# To upload & manage images
+gem 'mini_magick'
+gem 'carrierwave'
+
+# To utilise AWS cloud storage
+gem 'fog-aws'
+gem 'aws-sdk-rails'
+gem 'carrierwave-aws'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
