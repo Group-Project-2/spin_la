@@ -2,6 +2,7 @@
 	<div class="container">
 		<div class="row">
 		<% @deals.each do |deal| %>
+		<% if deal.company.verified == true %>
 			<% if deal.wins_remaining > 0 %>
 				<div class="col-md-4 mb-4">
 					<div class="card card-shadow text-center">
@@ -17,6 +18,7 @@
 						</div>
 					</div>
 				</div>
+				<% end %>
 			<% end %>
 		<% end %>
 		</div>
