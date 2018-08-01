@@ -47,11 +47,13 @@
   transition: all .2s ease-in-out;
   color: #000 !important;
  }
+
 /*
  .card:hover {
   transform: scale(1.02);
  }
 */
+
  .dropdown {
   color: #000 !important;
  }
@@ -59,6 +61,10 @@
  .no img {
    width: 50px;
    height: 50px;
+ }
+
+ #flash {
+  font-size: 1.90rem;
  }
 
  /*******************************
@@ -231,6 +237,16 @@ footer {
   30% {
     opacity: 0
   }
+}
+
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:3; } }
+
+.fade-in {
+  opacity:0;  /* make things invisible upon start */
+  -webkit-animation:fadeIn ease-in infinite;
+  -webkit-animation-duration:5s;
+  -webkit-animation-delay: 1.7s;
 }
 
   /*******************************
@@ -466,13 +482,13 @@ input[name="deal[description]"] {
 *******************************/
 
 #user_profile {
-  background-color: #6dd5ed;
-  background-size: cover;
+  /*background-color: #6dd5ed; */
+  /*background-size: cover;*/
 }
 
-#user_profile .btn-outline-light {
-    margin-left: 40%;
-    margin-top: 100px;
+#user_profile .btn-outline-dark {
+  margin-left: 40%;
+  margin-top: 80px;
 }
 
 #user_profile .img {
