@@ -3,15 +3,15 @@
 	<div class="container">
 		<div class="row pt-4">
 			<div id="col-1" class="col-md-4">
-			<% if @company.avatars != nil %>
-					<% @company.avatars.each do |avatar| %>
-						<img src="<%= avatar %>">
-						<% end %><br />
-			<% else %>
+			<% if @company.avatars == nil %>
 				<img id="spinImage" src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1" alt="">
+			<% else %>
+				<% @company.avatars.each do |avatar| %>
+					<img src="<%= avatar %>">
+				<% end %>
 			<% end %>
 			</div>
-			<div id="col-2" class="col-md-8 text-right">
+			<div id="col-2" class="col-md-8 text-right" data-aos="fade-right" >
 				<h1 class="text-shadow"><%= @company.name %></h1>
 				<h2 class="text-shadow">
 					<i class="far fa-address-book"></i>
@@ -42,12 +42,12 @@
 	</div>
 </div>
 
-<div class="container-fluid company-profiledeal-div">
+<div id="company" class="container-fluid company-profiledeal-div">
 	<div class="container">
-		<h1 class="text-white mt-4 text-shadow">Company's Deals</h1>
+		<h1 class="text-white mt-4 text-shadow" data-aos="fade-up">Company's Deals</h1>
 		<div class="row">
 		<% @company.deals.each do |deal| %>
-		<div class="col-md-4 mt-4">
+		<div class="col-md-4 mt-4" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
 			<div class="card card-shadow text-center">
 				<div class="card-header">
 					<h3><%= deal.description %></h3>
@@ -59,24 +59,26 @@
 					<p class="card-text">Wins Remaining: <%= deal.wins_remaining %></p>
 					<p class="card-text">Total Engagements: <%= deal.click_count %> spins</p>
 					<% if current_user.role == "business" && @company.user.id == current_user.id %>
-						<%= link_to 'Delete this deal', deal_path(deal), method: :delete, :role => "button", :class => "btn btn-lg btn-block btn-outline-dark mt-4 card-shadow text-shadow" %>
+						<%= link_to 'Delete this deal', deal_path(deal), method: :delete, :role => "button", :class => "btn btn-lg btn-block btn-outline-dark mt-4" %>
 					<% end %>
 				</div>
 			</div>
 		</div>
 		<% end %>
 		</div>
+		<div data-aos="flip-up" data-aos-offset="300">
 		<% if current_user.role == "business" && @company.user.id == current_user.id %>
-		<%= link_to 'Create new deal', new_deal_path, :role => "button", :class => "btn btn-lg btn-transparent mt-4 card-shadow text-shadow" %>
+			<%= link_to 'Create new deal', new_deal_path, :role => "button", :class => "btn btn-lg btn-transparent mt-4 card-shadow text-shadow" %>
 		<% end %>
+		</div>
 	</div>
 </div>
 
 <div class="container">
-	<h1 class="text-white mt-4 text-shadow">Recent reviews, ordered by latest</h1>
+	<h1 class="text-white mt-4 text-shadow" data-aos="fade-up">Recent reviews, ordered by latest</h1>
 	<div class="row">
 		<% @company.reviews.order(created_at: :desc).each do |review| %>
-		<div class="col-md-4 my-4">
+		<div class="col-md-4 my-4" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
 			<div class="card card-shadow">
 				<div class="card-body">
 					<h5 class="card-title"><span>Title: </span><%= review.title %></h5>
@@ -115,9 +117,11 @@
 		<% end %>
 	</div>
 
+	<div data-aos="flip-up" data-aos-offset="300">
 	<% if current_user.role == "consumer" %>
-	<%= link_to 'Write a Review', new_company_review_path(@company), :role => "button", :class => "btn btn-lg btn-transparent mt-2 mb-4 card-shadow text-shadow" %>
+		<%= link_to 'Write a Review', new_company_review_path(@company), :role => "button", :class => "btn btn-lg btn-transparent mt-2 mb-4 card-shadow text-shadow" %>
 	<% end %>
+	</div>
 	
 </div>
 

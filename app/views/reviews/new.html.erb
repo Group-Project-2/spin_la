@@ -1,13 +1,17 @@
-<div class="review container">
-  
-  <div class="title">
-    <h2>Create a Review</h2>
-  </div>
+<div class="container-fluid review-background">
 
-  <%= form_for [@company, @review] do |form| %>
-    <%= render partial: '/reviews/form', object: form %>
-    <%= form.submit :class => "sign-up-submit btn btn-outline-dark btn-block mt-3" %>
-    <%= link_to "Back", company_path(@company), :role => "button", :class => "btn btn-outline-dark btn-block" %>
-  <% end %>
+  <div class="review container" data-aos="zoom-out" data-aos-duration="1100">
+    
+    <div class="title">
+      <h2>Create a Review</h2>
+    </div>
+
+    <%= form_for [@company, @review] do |form| %>
+      <%= render partial: '/reviews/form', object: form %>
+      <%= form.submit :class => "sign-up-submit btn btn-outline-dark btn-block mt-3" %>
+      <%= link_to "Back", company_path(@company), :role => "button", :class => "btn btn-outline-dark btn-block" %>
+    <% end %>
+
+  </div>
 
 </div>

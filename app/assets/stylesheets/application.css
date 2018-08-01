@@ -18,8 +18,14 @@
               GENERAL
  *******************************/
 
- * {
+ *,
+ *:before,
+ *:after {
    box-sizing: border-box;
+ }
+
+ *:focus {
+   outline: none !important;
  }
 
  html, body {
@@ -150,6 +156,10 @@
   background-size: cover;
 }
 
+.content .card:hover {
+  transform: scale(1.02);
+}
+
 .content h1 {
   padding: 20px 0;
 }
@@ -239,7 +249,6 @@ footer {
   }
 }
 
-
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:3; } }
 
 .fade-in {
@@ -262,6 +271,46 @@ footer {
    -webkit-box-shadow: 7px 6px 160px -5px rgba(0,0,0,0.39);
    -moz-box-shadow: 7px 6px 160px -5px rgba(0,0,0,0.39);
    box-shadow: 7px 6px 160px -5px rgba(0,0,0,0.39);
+ }
+
+ .sign-in-background {
+  background: url(https://images.pexels.com/photos/776538/pexels-photo-776538.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) black no-repeat;
+ }
+
+ .sign-up-background {
+  background: url(https://images.pexels.com/photos/1055054/pexels-photo-1055054.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) black no-repeat;
+ }
+
+ .company-background {
+  background: url(https://images.pexels.com/photos/630839/pexels-photo-630839.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) black no-repeat;
+ }
+
+ .new-deal-background {
+  background: url(https://images.pexels.com/photos/936137/pexels-photo-936137.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+ }
+
+ .review-background {
+   background: url(https://images.pexels.com/photos/7103/writing-notes-idea-conference.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+ }
+
+ .sign-in-background,
+ .sign-up-background,
+ .company-background,
+ .new-deal-background,
+ .review-background {
+  background-size: cover;
+  height: 100%;
+  margin-top: -50px;
+  opacity: .9;
+ }
+
+
+ .sign-in, .sign-up {
+   padding-top: 270px;
+ }
+
+ .company, .deals , .review{
+   padding-top: 70px;
  }
 
  .sign-up,
@@ -301,7 +350,6 @@ footer {
  .btn-outline-dark {
    border-color: purple;
    color: midnightblue;
-
  }
 
  .btn-outline-dark:hover, .btn-outline-dark:active {
@@ -373,6 +421,10 @@ input[name="deal[description]"] {
             Company
 *******************************/
 
+#company .card:hover {
+  transform: scale(1.02);
+}
+
 .text-shadow {
   text-shadow: 2px 2px 12px #1C6EA4;
 }
@@ -390,6 +442,7 @@ input[name="deal[description]"] {
 
 .company-profile-div {
   width: 100%;
+  padding-top: 64px;
   color: #fff;
 }
 
@@ -458,7 +511,6 @@ input[name="deal[description]"] {
   opacity: 1;
 }
 
-
 .grey-star {
   color: #ccc;
 }
@@ -524,7 +576,6 @@ input[name="deal[description]"] {
 /**************************
             Spin
 **************************/
-
 
 /*WRAPPER*/
 #wrapper{ 
@@ -593,6 +644,7 @@ input[name="deal[description]"] {
   -ms-transform: rotate(60deg);
   border-color: #16a085 transparent;  
 }
+
 #wheel div.sec:nth-child(2){
   transform: rotate(120deg);
   -webkit-transform: rotate(120deg);
@@ -601,6 +653,7 @@ input[name="deal[description]"] {
   -ms-transform: rotate(120deg);
   border-color: #2980b9 transparent;  
 }
+
 #wheel div.sec:nth-child(3){
   transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
@@ -609,6 +662,7 @@ input[name="deal[description]"] {
   -ms-transform: rotate(180deg);
   border-color: #34495e transparent;  
 }
+
 #wheel div.sec:nth-child(4){
   transform: rotate(240deg);
   -webkit-transform: rotate(240deg);
@@ -617,6 +671,7 @@ input[name="deal[description]"] {
   -ms-transform: rotate(240deg);
   border-color: #f39c12 transparent;  
 }
+
 #wheel div.sec:nth-child(5){
   transform: rotate(300deg);
   -webkit-transform: rotate(300deg);
@@ -625,6 +680,7 @@ input[name="deal[description]"] {
   -ms-transform: rotate(300deg);
   border-color: #d35400 transparent;  
 }
+
 #wheel div.sec:nth-child(6){
   transform: rotate(360deg);
   -webkit-transform: rotate(360deg);
@@ -633,7 +689,6 @@ input[name="deal[description]"] {
   -ms-transform: rotate(360deg);
   border-color: #c0392b transparent;  
 }
-
 
 #wheel div.sec .fa{
   margin-top: -100px;
@@ -644,12 +699,8 @@ input[name="deal[description]"] {
   text-align: center;
   font-size:36px;
   margin-left:-15px;
-  
   text-shadow: rgba(255, 255, 255, 0.1) 0px -1px 0px, rgba(0, 0, 0, 0.2) 0px 1px 0px;
 }
-
-
-
 
 #spin{
   width:68px;
@@ -730,8 +781,6 @@ input[name="deal[description]"] {
   font-size:15px; 
 }
 
-
-
 #shine{
   width:250px;
   height:250px;
@@ -739,19 +788,14 @@ input[name="deal[description]"] {
   top:0;
   left:0;
   background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%, rgba(255,255,255,0.99) 1%, rgba(255,255,255,0.91) 9%, rgba(255,255,255,0) 100%); /* FF3.6+ */
-background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,1)), color-stop(1%,rgba(255,255,255,0.99)), color-stop(9%,rgba(255,255,255,0.91)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
-background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.99) 1%,rgba(255,255,255,0.91) 9%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.99) 1%,rgba(255,255,255,0.91) 9%,rgba(255,255,255,0) 100%); /* Opera 12+ */
-background: -ms-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.99) 1%,rgba(255,255,255,0.91) 9%,rgba(255,255,255,0) 100%); /* IE10+ */
-background: radial-gradient(ellipse at center,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.99) 1%,rgba(255,255,255,0.91) 9%,rgba(255,255,255,0) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
-
-opacity:0.1;
-  
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,1)), color-stop(1%,rgba(255,255,255,0.99)), color-stop(9%,rgba(255,255,255,0.91)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.99) 1%,rgba(255,255,255,0.91) 9%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.99) 1%,rgba(255,255,255,0.91) 9%,rgba(255,255,255,0) 100%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.99) 1%,rgba(255,255,255,0.91) 9%,rgba(255,255,255,0) 100%); /* IE10+ */
+  background: radial-gradient(ellipse at center,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.99) 1%,rgba(255,255,255,0.91) 9%,rgba(255,255,255,0) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  opacity:0.1;
 }
-
-
 
 /*ANIMATION*/
 @-webkit-keyframes hh {
@@ -783,25 +827,33 @@ opacity:0.1;
     animation: hh 0.1s;
 }
 
+/*********************************************
+Small devices (landscape phones, 576px and up)
+**********************************************/
 
+@media (min-width: 576px) { 
+  
+ }
 
+/**********************************************
+Medium devices (tablets, 768px and up) 
+**********************************************/
 
+@media (min-width: 768px) { 
+  
+ }
 
+/********************************************** 
+Large devices (desktops, 992px and up)
+**********************************************/
 
+@media (min-width: 992px) { 
+  
+ }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/********************************************** 
+Extra large devices (large desktops, 1200px and up)
+**********************************************/
+@media (min-width: 1200px) { 
+  
+ }
