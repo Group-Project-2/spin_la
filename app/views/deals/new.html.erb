@@ -1,11 +1,14 @@
-<div class="container deals">
-  <div class="title">
-    <h2>Create Deal</h2>
-  </div>
-  
-  <%= form_for @deal do |form| %>
-    <%= render partial: '/deals/form', object: form %>
-    <%= form.submit :class => "sign-up-submit btn btn-outline-dark btn-block mt-3" %>
-  <% end %>
-</div>
+<div class="container-fluid new-deal-background">
 
+  <div class="container deals"  data-aos="zoom-out" data-aos-duration="1100">
+    <div class="title">
+      <h2>Create Deal</h2>
+    </div>
+    
+    <%= form_for @deal do |form| %>
+      <%= render partial: '/deals/form', object: form %>
+      <%= form.submit :class => "sign-up-submit btn btn-outline-dark btn-block mt-3" %>
+    <% end %>
+  </div>
+
+</div>

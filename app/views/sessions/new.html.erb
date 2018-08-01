@@ -1,9 +1,13 @@
-<div id="clearance" class="sign-in container">
-  
-  <div class="title">
-    <h2><%= t(".title") %></h2>
-  </div>
+<div class="container-fluid sign-in-background">
 
-  <%= render partial: '/sessions/form' %>
+  <div id="clearance" class="sign-in container" data-aos="zoom-out" data-aos-duration="1100">
+  
+    <div class="title">
+      <h2><%= t(".title") %></h2>
+    </div>
+
+    <%= render partial: '/sessions/form' %>
+
+  </div>
 
 </div>

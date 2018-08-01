@@ -22,7 +22,7 @@
   <div class="row text-center text-shadow">
     <div class="col-lg-6 landing-title landing-title-1">
       <div class="container">
-        <div class="fade-in">
+        <div data-aos="zoom-in-left">
           <h1>Live to Eat, Love to Eat</h1></br>
           <h5>People who love to eat are always the best people.</h5>
           <small>Julia Child</small>
@@ -36,7 +36,7 @@
 
     <div class="col-lg-6 landing-title landing-title-2">
       <div class="container">
-        <div class="fade-in">
+        <div data-aos="zoom-in-right" data-aos-duration="900">
           <h1 class="text-center text-shadow">Good food fills your body and soul altogether.</h1>
         </div>
       </div>
@@ -46,11 +46,17 @@
 
 <div class="container-fluid content">
   <div class="content-container">
-    <h1 class="text-white">Deals Offered by Top Companies</h1>
+    <div data-aos="fade-down"
+     data-aos-duration="3000">
+      <h1 class="text-white">Deals Offered by Top Companies</h1>
+    </div>
     <div class="row">
     <% @deals.each do |deal| %>
       <% if deal.wins_remaining > 0 %>
-				<div class="col-md-4 mb-4">
+				<div class="col-md-4 mb-4" data-aos="fade-up"
+        data-aos-easing="linear"
+        data-aos-duration="700"
+        data-aos-anchor-placement="bottom-bottom">
 					<div class="card card-shadow text-center">
 						<div class="card-body">
 							<img src="https://s3-ap-southeast-1.amazonaws.com/pizzahutmy/menu/BlazingSeafood-L-1486726693.png" alt="">
@@ -68,10 +74,14 @@
 </div>
 
 <footer class="container-fluid">
-  <div class="row footer-container">
+  <div class="row footer-container" data-aos="fade-right"
+     data-aos-easing="linear"
+     data-aos-duration="700">
     <div class="col-md-4">
       <h1>Contact</h1>
-      <img src="https://png.pngtree.com/element_our/md/20180322/md_5ab35e2e64030.png" style=" width: 150px; height: auto;">
+      <div>
+        <img src="https://png.pngtree.com/element_our/md/20180322/md_5ab35e2e64030.png" style=" width: 150px; height: auto;">
+      </div>
     </div>
 
     <div class="col-md-4">
