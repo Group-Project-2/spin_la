@@ -228,6 +228,16 @@ footer {
   }
 }
 
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:3; } }
+
+.fade-in {
+  opacity:0;  /* make things invisible upon start */
+  -webkit-animation:fadeIn ease-in infinite;
+  -webkit-animation-duration:5s;
+  -webkit-animation-delay: 1.7s;
+}
+
   /*******************************
               FORM
  *******************************/
