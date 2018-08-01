@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get "/" => "welcome#index"
 
+  
+
   # constraints Clearance::Constraints::SignedIn.new do
   #   root to: 'welcome#index', as: :root
   # end
@@ -24,6 +26,8 @@ Rails.application.routes.draw do
   end
 
 resources :deals
+
+get "/wheelspin"=> "deals#wheelspin", as: "wheelspin"
 
 resources :welcome, only: [:index]
 

@@ -8,6 +8,7 @@ Rails.application.config.assets.version = '1.0'
 # Add Yarn node_modules folder to the asset load path.
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w( ThrowPropsPlugin.min.js )
+Rails.application.config.assets.precompile += %w( Spin2Win.js )
 Rails.application.config.assets.precompile += %w( spin.js )
 
 # Precompile additional assets.
