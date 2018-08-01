@@ -26,6 +26,7 @@ class DealsController < ApplicationController
 	end
 
 	def spin
+		
 		@win_odds = ((@deal.odds_numerator.to_f)/(@deal.odds_denominator.to_f))*100
 
 		if @deal.wins_remaining > 0
