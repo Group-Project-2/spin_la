@@ -459,7 +459,7 @@ input[name="deal[description]"] {
   /*background-size: cover;*/
 }
 
-#user_profile .btn-outline-light {
+#user_profile .btn-outline-dark {
   margin-left: 40%;
   margin-top: 80px;
 }
