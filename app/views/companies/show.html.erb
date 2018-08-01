@@ -26,6 +26,10 @@
 					<%= @company.email %>
 				</h2>
 				<h2 class="text-shadow">
+					<i class="fas fa-spinner"></i>
+					Verification: <%= !@company.verified ? 'Pending' : 'Approved'%>
+				</h2>
+				<h2 class="text-shadow">
 					<i class="far fa-star"></i>
 					<% if @company.reviews.average(:stars) == 0 || @company.reviews.average(:stars) == nil %>
 						<span>0</span>
@@ -53,7 +57,7 @@
 					<!-- <img src="https://s3-ap-southeast-1.amazonaws.com/pizzahutmy/menu/BlazingSeafood-L-1486726693.png" alt=""> -->
 					<p class="card-text">Winning Odds: <%= (deal.odds_numerator)/(deal.odds_denominator).to_r %></p>
 					<p class="card-text">Wins Remaining: <%= deal.wins_remaining %></p>
-					<p class="card-text">Total Engagements: <%= deal.wins_remaining %></p>
+					<p class="card-text">Total Engagements: <%= deal.click_count %> spins</p>
 					<% if current_user.role == "business" && @company.user.id == current_user.id %>
 						<%= link_to 'Delete this deal', deal_path(deal), method: :delete, :role => "button", :class => "btn btn-lg btn-block btn-outline-dark mt-4 card-shadow text-shadow" %>
 					<% end %>
@@ -102,10 +106,8 @@
 					<% end %>
 					</span></p>
 					<!-- Condition to avoid the original reviewer or the company itself to report the review -->
-					<% if (!review.reported && review.user_id != current_user.id) && @company.user.id != current_user.id %>
-						<p><%= link_to 'Report this review', report_path(review), method: :patch, remote: true, id: "report_review" %></p>
-					<% elsif review.reported == true %>
-						<p><%= link_to 'Report this review', report_path(review), method: :patch, remote: true, id: "review_reported" %></p>
+					<% if (review.user_id != current_user.id) && @company.user.id != current_user.id %>
+						<p id="report_link_<%=review.id%>"><%= link_to 'Report this review', report_path(review), method: :patch, remote: true %></p>
 					<% end %>
 				</div>
 			</div>

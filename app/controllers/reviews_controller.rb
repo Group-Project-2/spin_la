@@ -34,13 +34,13 @@ class ReviewsController < ApplicationController
 
 	def report
 		if @review.reported == false
-			flash.now[:notice] = "Free Spins!"
+			flash.now[:notice] = "Thank you for reporting this review, if the report is justified, you shall be rewarded with a free spin!"
 			respond_to do |format|
 				format.js
 			end
 			@review.update(reported: true, reported_by_user_id: current_user.id )
 		elsif @review.reported == true
-			flash.now[:alert] = "Review has already been reported!" 
+			flash.now[:alert] = "This review is currently under investigation by our admins and shall be removed if deemed inappropriate! " 
 			respond_to do |format|
 				format.js
 			end

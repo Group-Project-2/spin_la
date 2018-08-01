@@ -30,6 +30,7 @@ class DealsController < ApplicationController
 		@win_odds = ((@deal.odds_numerator.to_f)/(@deal.odds_denominator.to_f))*100
 
 		if @deal.wins_remaining > 0
+			@deal.update(click_count: @deal.click_count += 1)
 			if current_user.spins_remaining != 0
 				current_user.update(spins_remaining: current_user.spins_remaining -= 1)
 				# logiclogiclogic
