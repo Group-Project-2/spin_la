@@ -19,8 +19,14 @@
 				<% if @user.id == current_user.id %>
 					<%= link_to "Edit Profile", edit_user_path(@user), method: :get %></br>
 					<% @company = Company.find_by(user_id: current_user.id) %>
-					<%= link_to "View Deals", deals_path(@deal) %>
+					<%= link_to "View Deals", deals_path(@deal) %></br>
 				<% end %>
+
+			<!-- Link to switch view from user to company, if company available-->
+			<% if current_user.role == "business" %> 
+				<% @company = Company.find_by(user_id: current_user.id) %>
+				<%= link_to "Switch to Company View", company_path(@company) %>
+			<% end %>
 			</div>
 		</div>
 
@@ -42,14 +48,6 @@
 					</div>
 				</div>
 			</div>
-			<% end %>
-		</div>
-
-		<div class="btn btn-sm btn-outline-dark mb-3">
-			<!-- Link to switch view from user to company, if company available-->
-			<% if current_user.role == "admin" || current_user.role == "business" %> 
-				<% @company = Company.find_by(user_id: current_user.id) %>
-				<%= link_to "Switch to Company View", company_path(@company) %>
 			<% end %>
 		</div>
 </div>

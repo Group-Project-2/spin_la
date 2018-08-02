@@ -53,6 +53,7 @@ $(document).ready(function(){
 				var aoY = t.offset().top;
 				$("#txt").html(aoY);
 				console.log(aoY);
+
 				
 				/*23.7 is the minumum offset number that 
 				each section can get, in a 30 angle degree.
@@ -67,6 +68,7 @@ $(document).ready(function(){
 					}, 100);	
 				}
 			}, 10);
+
 			
 			$('#inner-wheel').css({
 				'transform' : 'rotate(' + totalDegree + 'deg)'			
@@ -75,6 +77,7 @@ $(document).ready(function(){
 			noY = t.offset().top;
 			
 		});
+		
 	});
 
 	const navbar = document.querySelector(".navbar");
@@ -85,5 +88,7 @@ $(document).ready(function(){
 			console.log("Yes");
 		} 
 	}
+
 	
 });//DOCUMENT READY
+
