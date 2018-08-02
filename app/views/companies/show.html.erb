@@ -3,12 +3,12 @@
 	<div class="container">
 		<div class="row pt-4">
 			<div id="col-1" class="col-md-4">
-			<% if @company.avatars == nil %>
-				<img id="spinImage" src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1" alt="">
-			<% else %>
+			<% if @company.avatars? %>
 				<% @company.avatars.each do |avatar| %>
 					<img src="<%= avatar %>">
 				<% end %>
+			<% else %>
+				<img id="spinImage" src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1" alt="">
 			<% end %>
 			</div>
 			<div id="col-2" class="col-md-8 text-right" data-aos="fade-right" >
@@ -59,7 +59,7 @@
 					<p class="card-text">Wins Remaining: <%= deal.wins_remaining %></p>
 					<p class="card-text">Total Engagements: <%= deal.click_count %> spins</p>
 					<% if current_user.role == "business" && @company.user.id == current_user.id %>
-						<%= link_to 'Delete this deal', deal_path(deal), method: :delete, :role => "button", :class => "btn btn-lg btn-block btn-outline-dark mt-4" %>
+						<!-- <#%= link_to 'Delete this deal', deal_path(deal), method: :delete, :role => "button", :class => "btn btn-lg btn-block btn-outline-dark mt-4" %> -->
 					<% end %>
 				</div>
 			</div>
