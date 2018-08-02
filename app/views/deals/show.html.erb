@@ -16,11 +16,12 @@
 					<h3><%= @deal.description %></h3>
 				</div>
 				<div class="card-body">
-					<img src="https://s3-ap-southeast-1.amazonaws.com/pizzahutmy/menu/BlazingSeafood-L-1486726693.png" alt="">
+          <p><%= image_tag @deal.deal_image_url.to_s %></p> 
+					<!-- <img src="https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjHibOFps3cAhWBfX0KHTsDDaUQjRx6BAgBEAU&url=http%3A%2F%2Fwww.mydeal.ie%2Fabout-mydeal%2F&psig=AOvVaw0hOFAbRs-sWXUc04go8q74&ust=1533262484839380" alt=""> -->
 					<p class="card-text">Winning Odds: <%= (@deal.odds_numerator)/(@deal.odds_denominator).to_r %></p>
 					<p id="wins_remaining" class="card-text">Wins Remaining: <%= @deal.wins_remaining %></p>
           <!-- <p id="status-<%=current_user.id%>"> Spins available: <%= current_user.spins_remaining %></p> -->
-          <!-- <p><%= image_tag @deal.deal_image_url.to_s %></p> -->
+          
 
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-block btn-lg btn-outline-dark my-2" data-toggle="modal" data-target="#exampleModal">
@@ -37,7 +38,7 @@
                   <div class="sec"><span class="fas fa-comment"></span></div>
                   <div class="sec"><span class="fas fa-smile"></span></div>
                   <div class="sec"><span class="fas fa-heart"></span></div>
-                  <div class="sec"><span class="fas fa-star"></span></div>
+                  <div class="sec"><span class="fas fa-star"></span></div>  
                   <div class="sec"><span class="fas fa-lightbulb"></span></div>
                 </div>       
                

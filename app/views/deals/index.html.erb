@@ -14,7 +14,11 @@
 							<p class="card-text">Winning Odds: <%= (deal.odds_numerator)/(deal.odds_denominator).to_r %></p>
 							<p class="card-text">Wins Remaining: <%= deal.wins_remaining %></p>
 							<p class="card-text">Offered by: <%= link_to "#{deal.company.name}", company_path(deal.company_id) %></p>
-							<%= link_to 'Show Deal', deal_path(deal), :role => "button", :class => "btn btn-block btn-lg btn-outline-dark"  %>
+							<% if current_user == nil %>
+								<%= link_to 'Show Deal', sign_up_path, :role => "button", :class => "btn btn-block btn-lg btn-outline-dark"  %>
+							<% else %>
+								<%= link_to 'Show Deal', deal_path(deal), :role => "button", :class => "btn btn-block btn-lg btn-outline-dark"  %>
+							<% end %>
 						</div>
 					</div>
 				</div>
