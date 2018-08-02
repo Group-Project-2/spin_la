@@ -19,7 +19,7 @@
           <% if @deal.deal_image? %>
             <%= image_tag @deal.deal_image_url.to_s %>
           <% else %>
-					 <img src="https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjHibOFps3cAhWBfX0KHTsDDaUQjRx6BAgBEAU&url=http%3A%2F%2Fwww.mydeal.ie%2Fabout-mydeal%2F&psig=AOvVaw0hOFAbRs-sWXUc04go8q74&ust=1533262484839380" alt="">
+					 <img src="https://halfoff.adspayusa.com/wp-content/uploads/2018/03/sushi_and_sashimi_for_two.0.jpg" alt="" class="img-fluid">
           <% end %>
 					<p class="card-text">Winning Odds: <%= (@deal.odds_numerator)/(@deal.odds_denominator).to_r %></p>
 					<p id="wins_remaining" class="card-text">Wins Remaining: <%= @deal.wins_remaining %></p>

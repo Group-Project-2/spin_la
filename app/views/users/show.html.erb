@@ -43,7 +43,11 @@
 						<h5 class="card-title"><%= Deal.find(deal).company.name %></h5>
 					</div>
 					<div class="card-body">
-						<img src="https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2017/06/teacake.jpg?itok=-39KjF-f" class="img-fluid">
+					<% if Deal.find(deal).deal_image? %>
+            <%= image_tag Deal.find(deal).deal_image_url.to_s %>
+          <% else %>
+					  <img src="https://halfoff.adspayusa.com/wp-content/uploads/2018/03/sushi_and_sashimi_for_two.0.jpg" alt="" class="img-fluid">
+          <% end %>
 						<p class="card-text"><%= Deal.find(deal).description %></p>
 					</div>
 					<div class="card-footer">
