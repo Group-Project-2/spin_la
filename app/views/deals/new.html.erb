@@ -4,10 +4,12 @@
     <div class="title">
       <h2>Create Deal</h2>
     </div>
-    
+
     <%= form_for @deal do |form| %>
-      <%= render partial: '/deals/form', object: form %>
-      <%= form.submit :class => "sign-up-submit btn btn-outline-dark btn-block mt-3" %>
+    <%= link_to 'Create Spin Deal', deal_spin_type_path, id:"spin_link", method: :patch, remote: true%>     
+    <%= link_to 'Create Regular Deal', deal_regular_type_path, id:"deal_link", method: :patch, remote: true%>
+    <p id = "spin_deal">
+    </p>
     <% end %>
   </div>
 

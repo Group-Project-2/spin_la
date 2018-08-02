@@ -1,0 +1,29 @@
+ <%= form_for @deal do |form| %>
+<p>
+  <%= form.label :"Number of Wins available for deal:" %><br>
+  <%= form.text_field :wins_remaining %>
+</p>
+<p>
+  <%= form.label :"Number of Wins:" %><br>
+  <%= form.text_field :odds_numerator %>
+</p>
+<p>
+  <%= form.label :"Out of number of Spins:" %><br>
+  <%= form.text_field :odds_denominator %>
+</p>
+<p>
+  <%= form.label :"Description of Deal won:"%><br>
+  <%= form.text_field :description %>
+</p>
+<p>
+  <%= form.label :"Loser's deal, leave blank if none:"%><br>
+  <%= form.text_field :losing_description %>
+</p>
+<p>
+  <%= form.label :"Image for deal:" %>
+  <%= form.file_field :deal_image %>
+</p>
+<%= form.submit :class => "sign-up-submit btn btn-outline-dark btn-block mt-3" %>
+<%= link_to 'Back', new_deal_path, :class => "sign-up-submit btn btn-outline-dark btn-block mt-3"%>
+<% end %>
+
