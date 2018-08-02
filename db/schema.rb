@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 2018_08_02_063506) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "reported", default: false
-    t.integer "reported_by_user_id"
     t.index ["company_id"], name: "index_reviews_on_company_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

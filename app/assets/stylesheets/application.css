@@ -492,7 +492,7 @@ footer {
  }
 
  .company, .deals , .review{
-   padding-top: 70px;
+   padding-top: 100px;
  }
 
  .company {
@@ -711,7 +711,10 @@ input[name="deal[description]"] {
 *******************************/
 
 .admin-panel {
+  /* background: url(https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260); */
   padding-top: 64px;
+  /* color: white;
+  height: 100%; */
 }
 
 /*******************************
