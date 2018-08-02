@@ -82,7 +82,7 @@ $(document).ready(function(){
 
 	var navbar = document.querySelector(".navbar");
 
-	window.onscroll = () => {
+	window.onscroll = function() {
 		if (window.pageYOffset > 300) {
 			navbar.classList.add("bg-light");
 			console.log("Yes");
