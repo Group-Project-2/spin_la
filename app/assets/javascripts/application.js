@@ -19,6 +19,42 @@
 var degree = 1800;
 //number of clicks = 0
 var clicks = 0;
+var map;
+var marker;
+var infowindow;
+var next = { lat: 3.135687, lng: 101.629791 };
+
+function initMap() {
+
+	map = new google.maps.Map(document.getElementById("map"), {
+		center: {
+				lat: 3.135687,
+				lng: 101.629791
+		},
+		zoom: 18,
+		styles: styles,
+		mapTypeControl: false,
+		streetViewControl: false,
+		fullscreenControl: false
+	});
+
+	marker = new google.maps.Marker({
+		position: next,
+		map: map,
+		icon: "https://mt.googleapis.com/vt/icon/name=icons/onion/169-ltblue-dot.png",
+		animation: google.maps.Animation.DROP,
+		title: "Next Academy"
+	});
+
+	infowindow = new google.maps.InfoWindow({
+		content: "Next Academy Is Here!"
+	});
+
+	marker.addListener("click", function() {
+		infowindow.open(map, marker);
+	});
+
+}
 
 $(document).ready(function(){
 
