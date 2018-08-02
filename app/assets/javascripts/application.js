@@ -21,6 +21,30 @@ var degree = 1800;
 var clicks = 0;
 
 $(document).ready(function(){
+
+	// var navbar = document.querySelector(".navbar");
+	// var navlist = document.querySelectorAll(".navbar-links");
+	// var count = document.querySelector("#spins-left");
+
+	// window.onscroll = function() {
+	// 	if (window.pageYOffset > 80) {
+	// 		console.log("Yes");
+	// 		navbar.classList.add("bg-light");
+	// 		count.style.color = "black";
+	// 		navlist.forEach(function(link) {
+	// 			link.style.color ="black";
+	// 		});
+			
+	// 	} else {
+	// 		console.log("No");
+	// 		navbar.classList.remove("bg-light");
+	// 		count.style.color = "#fff";
+	// 		navlist.forEach(function(link) {
+	// 			link.style.color = "#fff";
+	// 		});
+			
+	// 	}
+	// }
 	
 	/*WHEEL SPIN FUNCTION*/
 	$('#spin').click(function(){
@@ -79,15 +103,6 @@ $(document).ready(function(){
 		});
 		
 	});
-
-	var navbar = document.querySelector(".navbar");
-
-	window.onscroll = function() {
-		if (window.pageYOffset > 300) {
-			navbar.classList.add("bg-light");
-			console.log("Yes");
-		} 
-	}
 
 	
 });//DOCUMENT READY

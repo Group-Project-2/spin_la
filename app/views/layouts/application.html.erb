@@ -14,6 +14,7 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
   integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
   crossorigin="anonymous">
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- Application.css -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -23,9 +24,13 @@
 <body>
   
   <!-- Start of Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top text-white">
+  <nav class="navbar navbar-expand-lg bg-nav fixed-top card-shadow">
     <div class="container">
-      <a class="navbar-brand" href="/">Spin La</a>
+      <a class="navbar-brand navbar-links navbar-logo" href="/" style="">
+        <div class="circle-1"></div>
+        <div class="circle-2"></div>
+        <div class="circle-3"></div>
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -37,13 +42,13 @@
         <ul class="nav navbar-nav navbar-right">
           <% if signed_in? -%>
           <li class="nav-item">
-            <p class="mt-2" id="spins-left">Spins: <%= current_user.spins_remaining %></p>
+            <p class="mt-2" id="spins-left" style="color: #fff; font-weight: bold;">Spins: <%= current_user.spins_remaining %></p>
           </li>
           <li class="nav-item">
-            <%= link_to 'Sign Up as a Business', new_company_path, :class => "mt-2", :style => "display: block;" %>
+            <%= link_to 'Sign Up as a Business', new_company_path, :class => "mt-2 navbar-links", :style => "display: block; color: white;font-weight: bold;" %>
           </li>
           <div class="dropdown">
-            <a class="btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="btn dropdown-toggle navbar-links" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white; font-weight: bold;">
               Account
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -53,13 +58,13 @@
           </div>
           <% else -%>
           <li class="nav-item">
-            <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
+            <%= link_to "Sign in with Google", "/auth/google_oauth2", :style => "color: #fff; font-weight: bold;" %>
           </li>
           <li class="nav-item">
-            <%= link_to t(".sign_up"), sign_up_path %>
+            <%= link_to t(".sign_up"), sign_up_path, :style => "color: #fff; font-weight: bold;" %>
           </li>
           <li class="nav-item">
-            <%= link_to t(".sign_in"), sign_in_path %>
+            <%= link_to t(".sign_in"), sign_in_path, :style => "color: #fff; font-weight: bold;" %>
           </li>
           <% end -%>
         </ul>
@@ -86,7 +91,9 @@
   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Init/Run the library -->
   <script>
     AOS.init();
   </script>

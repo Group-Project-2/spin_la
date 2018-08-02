@@ -15,8 +15,6 @@ Rails.application.routes.draw do
 
   get "/" => "welcome#index"
 
-  
-
   # constraints Clearance::Constraints::SignedIn.new do
   #   root to: 'welcome#index', as: :root
   # end
