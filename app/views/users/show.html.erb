@@ -7,8 +7,11 @@
 
 		<div class="d-flex justify-content-around">
 			<div class="img col-sm-4">
-				<!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5lhdQy2fMHepvvvD04-W8o4hH0rvZaKD6CulU2zwpYLScps93ng"> -->
-				<%= image_tag @user.profilepic_url.to_s %> 
+				<% if @user.profilepic? %>
+					<%= image_tag @user.profilepic_url.to_s %> 
+				<% else %>
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5lhdQy2fMHepvvvD04-W8o4hH0rvZaKD6CulU2zwpYLScps93ng"> 
+				<% end %>
 			</div>
 
 			<div class="col-sm-8 p-3 text-shadow text-right">
@@ -40,7 +43,11 @@
 						<h5 class="card-title"><%= Deal.find(deal).company.name %></h5>
 					</div>
 					<div class="card-body">
-						<img src="https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2017/06/teacake.jpg?itok=-39KjF-f" class="img-fluid">
+					<% if Deal.find(deal).deal_image? %>
+            <%= image_tag Deal.find(deal).deal_image_url.to_s %>
+          <% else %>
+					  <img src="https://s3-ap-southeast-1.amazonaws.com/pizzahutmy/menu/BlazingSeafood-L-1486726693.png" alt="" class="img-fluid">
+          <% end %>
 						<p class="card-text"><%= Deal.find(deal).description %></p>
 					</div>
 					<div class="card-footer">
