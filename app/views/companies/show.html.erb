@@ -56,7 +56,7 @@
 				<% if deal.deal_image? %>
             <%= image_tag deal.deal_image_url.to_s %>
           <% else %>
-					 <img src="https://halfoff.adspayusa.com/wp-content/uploads/2018/03/sushi_and_sashimi_for_two.0.jpg" alt="" class="img-fluid">
+					 <img src="https://s3-ap-southeast-1.amazonaws.com/pizzahutmy/menu/BlazingSeafood-L-1486726693.png" alt="" class="img-fluid">
           <% end %>
 					<!-- <img src="https://s3-ap-southeast-1.amazonaws.com/pizzahutmy/menu/BlazingSeafood-L-1486726693.png" alt=""> -->
 					<p class="card-text">Winning Odds: <%= (deal.odds_numerator)/(deal.odds_denominator).to_r %></p>
