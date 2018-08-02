@@ -80,7 +80,7 @@ $(document).ready(function(){
 		
 	});
 
-	const navbar = document.querySelector(".navbar");
+	var navbar = document.querySelector(".navbar");
 
 	window.onscroll = () => {
 		if (window.pageYOffset > 300) {
