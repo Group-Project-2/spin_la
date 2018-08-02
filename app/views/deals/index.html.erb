@@ -15,9 +15,16 @@
           		<% else %>
 								<img src="https://s3-ap-southeast-1.amazonaws.com/pizzahutmy/menu/BlazingSeafood-L-1486726693.png" alt="" class="img-fluid">
 							<% end %>
+							<% if deal.odds_numerator && deal.odds_denominator == 314159265 %>
+							<p class="card-text">Deal Type: Regular</p>
+							<p class="card-text">Wins Remaining: <%= deal.wins_remaining %></p>
+							<p class="card-text">Offered by: <%= link_to "#{deal.company.name}", company_path(deal.company_id) %></p>
+							<% else %>
+							<p class="card-text">Deal Type: Spin </p>
 							<p class="card-text">Winning Odds: <%= (deal.odds_numerator)/(deal.odds_denominator).to_r %></p>
 							<p class="card-text">Wins Remaining: <%= deal.wins_remaining %></p>
 							<p class="card-text">Offered by: <%= link_to "#{deal.company.name}", company_path(deal.company_id) %></p>
+							<% end %>
 							<% if current_user == nil %>
 								<%= link_to 'Show Deal', sign_up_path, :role => "button", :class => "btn btn-block btn-lg btn-outline-dark"  %>
 							<% else %>

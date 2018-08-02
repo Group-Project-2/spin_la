@@ -1,0 +1,22 @@
+ <%= form_for @deal do |form| %>
+<p>
+  <%= form.label :"Number of Wins:" %><br>
+  <%= form.text_field :wins_remaining %>
+</p>
+
+<p>
+  <%= form.label :"Description of Deal:"%><br>
+  <%= form.text_field :description %>
+</p>
+
+<p>
+  <%= form.label :"Image for deal:" %>
+  <%= form.file_field :deal_image %>
+</p>
+
+<%= form.hidden_field :odds_numerator, :value => 314159265 %>
+<%= form.hidden_field :odds_denominator, :value => 314159265 %>
+
+<%= form.submit :class => "sign-up-submit btn btn-outline-dark btn-block mt-3" %>
+<%= link_to 'Back', new_deal_path, :class => "sign-up-submit btn btn-outline-dark btn-block mt-3" %>
+<% end %>

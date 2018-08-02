@@ -35,7 +35,9 @@ end
 
 resources :admins, only: [:index, :destroy]
 
+patch "deal/spin_type" => "deals#spin_type"
 
+patch "deal/regular_type" => "deals#regular_type"
 
 patch "deals/:id/spin" => "deals#spin", as: "spin"
 
