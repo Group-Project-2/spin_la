@@ -462,6 +462,18 @@ input[name="deal[description]"] {
 }
 
 /*******************************
+            Deals
+*******************************/
+
+#deals {
+  padding-top: 80px;
+}
+
+.show-deal .container {
+  padding-top: 70px;
+}
+
+/*******************************
           Star Ratings
 *******************************/
 
@@ -528,6 +540,7 @@ input[name="deal[description]"] {
 *******************************/
 
 #user_profile {
+  padding-top: 64px;
   /*background-color: #6dd5ed; */
   /*background-size: cover;*/
 }
@@ -565,6 +578,7 @@ input[name="deal[description]"] {
 }
 
 .flash-text {
+  margin-top: 70px;
   font-size: 34px;
   color: #fff;
 }
