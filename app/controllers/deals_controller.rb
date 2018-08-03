@@ -14,16 +14,16 @@ class DealsController < ApplicationController
 		@deal = Deal.new
 
 		respond_to do |format|
-					format.js
-				end
+			format.js
+		end
 	end
 
 	def regular_type
 		@deal = Deal.new
 
 		respond_to do |format|
-					format.js
-				end
+			format.js
+		end
 	end
 
 	def create

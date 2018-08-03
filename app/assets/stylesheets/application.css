@@ -460,6 +460,7 @@ footer {
    -webkit-box-shadow: 7px 6px 160px -5px rgba(0,0,0,0.39);
    -moz-box-shadow: 7px 6px 160px -5px rgba(0,0,0,0.39);
    box-shadow: 7px 6px 160px -5px rgba(0,0,0,0.39);
+   text-transform: capitalize;
  }
 
  .sign-in-background {

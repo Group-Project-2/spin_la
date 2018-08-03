@@ -6,8 +6,8 @@
     </div>
 
     <%= form_for @deal do |form| %>
-    <%= link_to 'Create Spin Deal', deal_spin_type_path, id:"spin_link", method: :patch, remote: true%>     
-    <%= link_to 'Create Regular Deal', deal_regular_type_path, id:"deal_link", method: :patch, remote: true%>
+    <%= link_to 'Create Spin Deal', deal_spin_type_path, id:"spin_link", method: :patch, remote: true, :class => "btn btn-outline-dark btn-block" %>     
+    <%= link_to 'Create Regular Deal', deal_regular_type_path, id:"deal_link", method: :patch, remote: true, :class => "btn btn-outline-dark btn-block" %>
     <p id = "spin_deal">
     </p>
     <% end %>
