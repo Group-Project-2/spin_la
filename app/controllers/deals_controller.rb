@@ -96,8 +96,8 @@ class DealsController < ApplicationController
 	end
 
 	def destroy	
-			@deal.destroy
-  		redirect_to root_path
+		@deal.destroy
+  	redirect_to root_path
 	end
 
 	private

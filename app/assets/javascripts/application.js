@@ -112,7 +112,7 @@ $(document).ready(function(){
 					
 				var aoY = t.offset().top;
 				$("#txt").html(aoY);
-				console.log(aoY);
+				// console.log(aoY);
 
 				
 				/*23.7 is the minumum offset number that 
@@ -121,7 +121,7 @@ $(document).ready(function(){
 				that it has a 30 degree angle and therefore, 
 				exactly aligned with the spin btn*/
 				if(aoY < 23.89){
-					console.log('<<<<<<<<');
+					// console.log('<<<<<<<<');
 					$('#spin').addClass('spin');
 					setTimeout(function () { 
 						$('#spin').removeClass('spin');
@@ -137,9 +137,12 @@ $(document).ready(function(){
 			noY = t.offset().top;
 			
 		});
+
+		// $('#no_win').text("<%= flash[:notice] %>").delay( 2000 );
+		// $('#no_spin').text("<%= flash[:alert] %>").delay( 2000 );
+		// $('#spin_win').text("<%= flash[:success] %>").delay( 2000 );
+		// $('#spin_lose').text("<%= flash[:error] %>").delay( 2000 );
 		
 	});
 
-	
 });//DOCUMENT READY
-

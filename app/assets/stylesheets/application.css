@@ -489,9 +489,9 @@ footer {
  .new-deal-background,
  .review-background {
   background-size: cover;
-  height: 100%;
   margin-top: -50px;
   opacity: .9;
+  height: 1500px;
  }
 
  .sign-in, .sign-up {
@@ -641,7 +641,8 @@ input[name="deal[description]"] {
   background-color: #21D4FD;
   background: #6727fa;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to bottom, #333399, #6727fa);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #333399, #6727fa); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+  background: linear-gradient(to bottom, #333399, #6727fa); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 8000px;  
 }
 
 .company-profile-div {
@@ -673,13 +674,14 @@ input[name="deal[description]"] {
   padding-top: 120px;
   background: #D31027;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to bottom, #EA384D, #D31027);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #EA384D, #D31027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+  background: linear-gradient(to bottom, #EA384D, #D31027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 3000px;
 }
 
 .show-deal {
   background: linear-gradient(97deg, #5946f0, #42c9df, #ff30e5, #fb970c);
   background-size: 800% 800%;
-  height: 100%;
+  height: 2000px;
   padding-top: 20px;
 
   -webkit-animation: AnimationName 30s ease infinite;
@@ -706,6 +708,7 @@ input[name="deal[description]"] {
 @keyframes AnimationName { 
   0%{background-position:0% 78%}
   50%{background-position:100% 23%}
+  100%{background-position:0% 78%}
   100%{background-position:0% 78%}
 }
 
